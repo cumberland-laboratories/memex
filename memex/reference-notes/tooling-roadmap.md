@@ -2,18 +2,13 @@
 
 Status tracker for scripts, background operators, and automation. Check this before building something that may already be planned or in progress.
 
-## Scripts — Shipped
-
-| Script | Purpose | Status |
-|--------|---------|--------|
-| `scripts/generate_wiki.py` | MediaWiki render from thread graph | Working |
-| `scripts/generate_markdown.py` | Markdown render from thread graph | Working |
-| `scripts/memex-lint.sh` | Budget compliance, thread sizes, frontmatter, cross-references, orphan detection | Working |
-
 ## Scripts — Planned
 
 | Script | Purpose | Priority | Notes |
 |--------|---------|----------|-------|
+| `scripts/generate_wiki.py` | MediaWiki render from thread graph | High | Previously shipped in cl-memex, not yet ported to public repo. |
+| `scripts/generate_markdown.py` | Markdown render from thread graph | High | Previously shipped in cl-memex, not yet ported to public repo. |
+| `scripts/memex-lint.sh` | Budget compliance, thread sizes, frontmatter, cross-references, orphan detection | High | Previously shipped in cl-memex, not yet ported to public repo. |
 | Artifact INDEX.md generator | Parse artifact frontmatter, regenerate INDEX.md (by-date, by-tag, external-sources views) | Medium | Currently manual. Referenced in constitution, self-documenting-systems thread, INDEX.md header. Intended as enforcer task. |
 | Batch state-dump for session open | Single script that outputs inbox, patterns, audit-tracker, active thread summaries — reduces 14 tool calls to 1 | Low | Friction log 2026-03-15, session-opening-ux thread. UX improvement, not functional blocker. |
 | Blind review automation | Strip authorship markers and send to fresh model instance for unbiased review | Low | adversarial-review-techniques thread. Speculative — needs design work. |

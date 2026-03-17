@@ -11,6 +11,7 @@ Human says `[save]`, `[clip]`, or otherwise indicates the current exchange shoul
 1. Identify the exchange to save. Default: the immediately preceding human message + AI response. The human may specify a different range (e.g., "save the last three exchanges").
 2. Write the exchange to `memex/artifacts/` as a dated artifact:
    - Filename: `YYYY-MM-DD-clip-<short-descriptor>.md`
+   - YAML frontmatter: `date`, `tags`, `source-thread`, `clip: true`. No `summary` field — clips are verbatim captures, not synthesized records. The `clip: true` flag signals this exception to tooling and auditors.
    - Header: one-line context note (what thread or topic was active)
    - Body: the raw exchange, verbatim, formatted as a dialogue (`**Human:** ... **Agent:** ...`)
    - No synthesis, no summary, no restructuring. The conversational form is the value.

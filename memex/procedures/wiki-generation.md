@@ -28,7 +28,7 @@ Design principle: **the Memex owns structure; renderers own presentation.**
 4. **Extract `## Summary`** — each thread's Summary section is the wiki entry. If a thread lacks a Summary, render a visible missing-summary notice rather than synthesizing content.
 5. **Translate cross-references** — read `## Connections`; convert links that resolve to other thread files into renderer-local "See also" links. In the current MediaWiki target this becomes `'''See also:''' [[#Target Title|Link Label]] (annotation)`. In Markdown it becomes `[Link Label](#target-title) - annotation`. Ignore links to artifacts, reports, and external targets in single-page outputs.
 6. **Template into target format** — each thread renders as: heading, metadata line (`tier`, `hits`, `last touched`, `tags`), Summary, then See also.
-7. **Render identity section** — `identity.md` renders mechanically from fixed sections: `Background`, `Intellectual Disposition`, `Working Style`, `Civic Engagement`, `Interests`.
+7. **Render identity section** — `identity.md` renders mechanically from fixed sections: `Background`, `Intellectual Disposition`, `Working Style`, `Civic Engagement`, `Interests`. Sections that are absent or contain only bracket placeholders are silently skipped — the renderer adapts to whatever the operator has filled in.
 8. **Add header** — render date, thread count, category count, plus a fixed note that the wiki is a render.
 
 ## Scope Discipline
