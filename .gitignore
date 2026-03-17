@@ -1,0 +1,10 @@
+# External source files referenced by artifacts and threads.
+# Binary/large files that should not be tracked in git.
+memex/vault/
+
+# Workstation-specific Claude Code permissions
+.claude/settings.local.json
+
+# Python cache
+__pycache__/
+*.pyc
