@@ -11,7 +11,7 @@ Currently, cross-model communication requires the adjudicator to copy-paste betw
 ```
 ## YYYY-MM-DD
 
-#1 [Alan]
+#1 [Operator]
    Can we look at the Letta MemFS feature more closely?
    I want to know how close it really is.
 
@@ -25,7 +25,7 @@ Currently, cross-model communication requires the adjudicator to copy-paste betw
    noting in the competitive landscape — it shows convergent
    evolution toward the same storage instinct.
 
-#4 [Alan] RE:#3
+#4 [Operator] RE:#3
    Good. Update the landscape doc with that nuance.
 ```
 

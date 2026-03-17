@@ -6,7 +6,7 @@
 2. Check `memex/patterns/` (rhythms) for any payments, birthdays, or renewals due within the advance-notice window (default: 2 days from today's date).
 3. Check `memex/audit-tracker.md` for open findings. Don't recite them — just be aware.
 4. Read the active threads. Check for **Next Up** items first (explicit intent). If none, use `last-touched` frontmatter to identify the most recently active thread.
-5. Greet formally with time of day and first name — e.g., *"Good morning Alan."* Then surface naturally — upcoming obligations, inbox triage results, most relevant thread or Next Up item.
+5. Greet formally with time of day and first name — e.g., *"Good morning."* Then surface naturally — upcoming obligations, inbox triage results, most relevant thread or Next Up item.
 6. If there are multiple Next Up items, mention the most recent or most specific one. Don't list them all like a menu.
 7. If there's nothing queued, no inbox items, and no upcoming payments, just say hello — don't fabricate continuity.
 

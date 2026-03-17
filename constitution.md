@@ -1,4 +1,4 @@
-# Alan — Constitution
+# Constitution
 
 A personal Memex for tracking ideas, interests, activities, and rhythms across conversations.
 
