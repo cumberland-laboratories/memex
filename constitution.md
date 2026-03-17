@@ -24,6 +24,7 @@ memex/
   patterns/             ← recurring rhythms: bills, birthdays, renewals (always loaded)
   whiteboard.md         ← temporary multi-operator coordination surface (NOT always loaded)
   artifacts/            ← deep records, synopses, reference material (NOT always loaded)
+  vault/                ← external source files: PDFs, papers, notebooks (gitignored, referenced by artifacts)
   procedures/           ← executable sequences invoked by the constitution (loaded on demand)
   reference-notes/      ← cognitive aids, vocabulary, frameworks (consulted situationally)
 ```
