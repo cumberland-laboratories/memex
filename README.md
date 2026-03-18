@@ -101,7 +101,7 @@ Every thread carries annotated cross-references — not just "see also" but *why
 ## Getting started
 
 ```bash
-git clone https://github.com/cumberland-labs/memex.git
+git clone https://github.com/cumberland-laboratories/memex.git
 cd memex
 ```
 
