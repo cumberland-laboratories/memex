@@ -74,6 +74,7 @@ Orphans and bridges are constitutional invariant violations — the scoring pena
 ## Small Next Features
 
 - **More visible arrowheads on graph edges.** Current `-|>` style renders as a subtle flat bar at this scale. Switch to larger triangular arrowheads or increase arrowsize so directionality is obvious at a glance — will matter more as the graph grows.
+- **Simulate mode for graph health.** Preview the impact of a new cross-reference before committing it. E.g., `python scripts/graph_health.py --simulate "git-role-in-memex.md -> memex-maintenance.md"` — shows the score delta, bridge/orphan changes, and before/after comparison. Lets the adjudicator shape the graph topology with real-time feedback, like evaluating a chess move before making it. Important constraint: the tool shows structural impact, but semantic justification remains a human judgment. A link that improves the score but doesn't represent a real conceptual connection is gaming the metric.
 
 ## Open Questions
 
