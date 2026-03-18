@@ -60,7 +60,19 @@ Output: terminal report, plus optional `wiki/thread-graph.png` showing the threa
 → [knowledge-systems-comparison.md](knowledge-systems-comparison.md) — scaling analysis that identified graph maintenance as the failure point
 → [agent-performance-latency.md](agent-performance-latency.md) — tool-call round trips are the latency cost of maintenance operations
 
+## Health Score
+
+The graph image includes a stats panel and composite health score (0-100), graded as HEALTHY/FAIR/UNHEALTHY. Four dimensions, equally weighted:
+
+- **Reachability** (100 = all pairs within 3 hops, 0 = disconnected)
+- **Resilience** (100 = no bridge edges, -30 per bridge)
+- **Connectivity** (100 = no orphans, -25 per orphan thread with zero inbound links)
+- **Distribution** (100 = no hub concentration, degrades when one node carries >50% of edges)
+
+Orphans and bridges are constitutional invariant violations — the scoring penalizes them heavily. A glance at the graph image tells you: is the Memex healthy right now, and where are the weak points?
+
 ## Open Questions
 
 - Should wiki generation and graph health run as a pre-commit hook or stay manual?
 - Should the graph image be committed to the repo or regenerated on demand?
+- What's the right health score formula? Weighted composite, or simple pass/fail per dimension?

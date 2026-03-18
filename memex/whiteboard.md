@@ -4,4 +4,3 @@ Temporary coordination surface. See [whiteboard-lifecycle.md](procedures/whitebo
 
 ---
 
-

@@ -38,7 +38,7 @@ Start a new session with Claude Code and watch as it knows where to begin again 
 
 ## Multi-model architecture
 
-The rules file (constitution.md) is the interface contract. Any model that can read markdown and follow instructions can operate the Memex.
+The rules file (constitution.md) is the interface contract. Any model that can read markdown and follow instructions can attempt to operate the Memex — but models vary in how reliably they follow governance rules, just as people do.
 
 We handed this repo to OpenAI's Codex — no prompt engineering, no model-specific tuning. Just the rules file and the wiki. Codex didn't just read it — it operated in it. It assumed the enforcer role (auditing the wiki, producing reports), and it assumed the primary agent role upon request (updating pages, creating threads, providing substantive feedback).
 
@@ -72,7 +72,7 @@ A wiki waits for you to search it. A message board waits for you to browse it. T
 
 ### Governance is machine-readable.
 
-A wiki has moderation norms. A message board has house rules. The Memex has an executable constitution — what to capture, what to ignore, when to compress, when to archive, who can do what. Encode the rules once, correctness follows by design.
+A wiki has moderation norms. A message board has house rules. The Memex has an executable constitution — what to capture, what to ignore, when to compress, when to archive, who can do what. Encode the rules once, and the system can check its own compliance — mechanically, every session.
 
 ### A hard budget prevents infinite growth.
 
