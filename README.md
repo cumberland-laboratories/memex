@@ -50,6 +50,14 @@ The architecture outlives any individual model. The governance is in the files.
 
 ---
 
+## Adversarial design
+
+Governance rules are only as good as the ability to enforce them. This system was designed through adversarial iteration: the human and Claude develop a plan together, Codex reviews it critically, and the human and Claude assess the review — repeating until the design holds up under scrutiny. Good governance produces better architecture. Audited process can be improved; unaudited process can only be trusted.
+
+The human role is not supervisory — it is architectural. The human is the principal investigator: directing research, weighing competing model assessments, and deciding which structural changes to accept. This requires reasoning across multiple levels of the design simultaneously.
+
+---
+
 ## Not a message board, not a wiki
 
 It borrows from both. Cross-linked pages from wikis. Thread lifecycle from message boards. But the thing it does that neither can:
@@ -137,7 +145,7 @@ git clone https://github.com/cumberland-laboratories/memex.git
 cd memex
 ```
 
-Or just download the files. The Memex is constructed with markdown, git, interchangeable LLMs, and governance rules.
+Or just download the files. The Memex is constructed with markdown, git, adversarial models, and governance rules.
 
 ---
 
