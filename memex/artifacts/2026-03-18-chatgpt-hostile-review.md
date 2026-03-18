@@ -9,7 +9,7 @@ summary: Hostile/skeptical review by ChatGPT. Core attack — more manifesto tha
 
 # ChatGPT Hostile Review (2026-03-18)
 
-Adversarial review by ChatGPT, requested as a follow-up to the balanced review.
+Adversarial review by ChatGPT, requested as a follow-up to the balanced review. **Dated snapshot**: some evidence cited (e.g., "0 live threads," missing scripts) reflects repo state at the time of the 2026-03-17 enforcer audit and is no longer current. The attack lines remain valuable as structural critiques; the specific evidence should be checked against current repo state before reuse.
 
 ## Hostile Verdict
 
