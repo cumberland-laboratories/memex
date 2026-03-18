@@ -14,7 +14,7 @@ fine-tuning, proprietary infrastructure, or large context windows.
 
 ---
 
-### What a session looks like
+### What a session opening looks like with Memex
 
 ![Session opening — Claude Code resumes context from the Memex](images/session-open.jpg)
 
