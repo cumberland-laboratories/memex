@@ -277,20 +277,35 @@ def render_graph_image(
     # Build a labeled graph for display
     labels = {node: title for node, title in path_to_title.items() if node in G}
 
+    BG = "#f0f0f0"
+    TEXT_COLOR = "#222222"
+    PANEL_BG = "#ffffff"
+    PANEL_EDGE = "#cccccc"
+    EDGE_COLOR = "#8888aa"
+
     # Color by tier
     tier_colors = {"Active thread": "#4A90D9", "Reference thread": "#999999"}
     node_colors = [tier_colors.get(G.nodes[n].get("tier", ""), "#CCCCCC") for n in G.nodes()]
 
-    fig, ax = plt.subplots(1, 1, figsize=(14, 9))
-    fig.patch.set_facecolor("#1a1a2e")
-    ax.set_facecolor("#1a1a2e")
+    # Use gridspec: graph on top, stats panel below
+    if health:
+        fig = plt.figure(figsize=(14, 11))
+        gs = fig.add_gridspec(2, 1, height_ratios=[4, 1], hspace=0.05)
+        ax = fig.add_subplot(gs[0])
+        ax_stats = fig.add_subplot(gs[1])
+    else:
+        fig, ax = plt.subplots(1, 1, figsize=(14, 9))
+        ax_stats = None
+
+    fig.patch.set_facecolor(BG)
+    ax.set_facecolor(BG)
 
     pos = nx.spring_layout(G, k=2.5, iterations=50, seed=42)
 
     # Draw edges
     nx.draw_networkx_edges(
         G, pos, ax=ax,
-        edge_color="#555577",
+        edge_color=EDGE_COLOR,
         arrows=True,
         arrowsize=15,
         arrowstyle="-|>",
@@ -304,42 +319,43 @@ def render_graph_image(
         node_color=node_colors,
         node_size=800,
         edgecolors="#ffffff",
-        linewidths=1.5,
+        linewidths=2.0,
     )
 
     # Draw labels
     nx.draw_networkx_labels(
         G, pos, labels=labels, ax=ax,
-        font_size=8,
-        font_color="#e0e0e0",
+        font_size=9,
+        font_color=TEXT_COLOR,
         font_weight="bold",
     )
 
-    ax.set_title("Memex Thread Graph", color="#e0e0e0", fontsize=14, fontweight="bold", pad=20)
+    ax.set_title("Memex Thread Graph", color=TEXT_COLOR, fontsize=14, fontweight="bold", pad=20)
 
     # Legend
     from matplotlib.lines import Line2D
 
     legend_elements = [
-        Line2D([0], [0], marker="o", color="#1a1a2e", markerfacecolor="#4A90D9",
+        Line2D([0], [0], marker="o", color=BG, markerfacecolor="#4A90D9",
                markersize=10, label="Active thread"),
-        Line2D([0], [0], marker="o", color="#1a1a2e", markerfacecolor="#999999",
+        Line2D([0], [0], marker="o", color=BG, markerfacecolor="#999999",
                markersize=10, label="Reference thread"),
     ]
-    ax.legend(handles=legend_elements, loc="lower right", facecolor="#16213e",
-              edgecolor="#555577", labelcolor="#e0e0e0")
+    ax.legend(handles=legend_elements, loc="lower right", facecolor=PANEL_BG,
+              edgecolor=PANEL_EDGE, labelcolor=TEXT_COLOR)
 
     ax.axis("off")
 
-    # Health overlay
-    if health:
-        verdict = health["verdict"]
-        verdict_colors = {"HEALTHY": "#4CAF50", "FAIR": "#FFC107", "UNHEALTHY": "#F44336"}
-        verdict_color = verdict_colors.get(verdict, "#e0e0e0")
+    # Health stats panel below graph
+    if health and ax_stats is not None:
+        ax_stats.set_facecolor(BG)
+        ax_stats.axis("off")
 
-        stats_text = (
-            f"Health: {verdict}  ({health['overall']}/100)\n"
-            f"\n"
+        verdict = health["verdict"]
+        verdict_colors = {"HEALTHY": "#2E7D32", "FAIR": "#F57F17", "UNHEALTHY": "#C62828"}
+        verdict_color = verdict_colors.get(verdict, TEXT_COLOR)
+
+        stats_lines = (
             f"Nodes: {health['nodes']}    Edges: {health['edges']}    Avg degree: {health['avg_degree']}\n"
             f"Components: {health['components']}    Bridges: {health['bridges']}    Orphans: {len(health['orphans'])}\n"
             f"\n"
@@ -349,29 +365,31 @@ def render_graph_image(
             f"Distribution: {health['hub_score']}"
         )
 
-        # Draw stats panel in top-left
-        props = dict(boxstyle="round,pad=0.8", facecolor="#16213e", edgecolor="#555577", alpha=0.95)
-        text_obj = ax.text(
-            0.02, 0.98, stats_text,
-            transform=ax.transAxes,
-            fontsize=9,
-            fontfamily="monospace",
-            color="#e0e0e0",
-            verticalalignment="top",
-            bbox=props,
-        )
+        props = dict(boxstyle="round,pad=0.8", facecolor=PANEL_BG, edgecolor=PANEL_EDGE, alpha=0.95)
 
-        # Color the verdict line
-        ax.text(
-            0.02, 0.98,
-            f"Health: {verdict}",
-            transform=ax.transAxes,
-            fontsize=9,
+        # Verdict line (colored, bold)
+        ax_stats.text(
+            0.5, 0.82,
+            f"Health: {verdict}  ({health['overall']}/100)",
+            transform=ax_stats.transAxes,
+            fontsize=12,
             fontfamily="monospace",
             fontweight="bold",
             color=verdict_color,
-            verticalalignment="top",
-            bbox=dict(facecolor="none", edgecolor="none"),
+            verticalalignment="center",
+            horizontalalignment="center",
+        )
+
+        # Stats below verdict
+        ax_stats.text(
+            0.5, 0.35, stats_lines,
+            transform=ax_stats.transAxes,
+            fontsize=10,
+            fontfamily="monospace",
+            color=TEXT_COLOR,
+            verticalalignment="center",
+            horizontalalignment="center",
+            bbox=props,
         )
 
     plt.tight_layout()
