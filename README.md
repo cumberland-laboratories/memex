@@ -14,6 +14,12 @@ fine-tuning, proprietary infrastructure, or large context windows.
 
 ---
 
+### What a session looks like
+
+![Session opening — Claude Code resumes context from the Memex](images/session-open.jpg)
+
+---
+
 ## What this means for you
 
 Clone this repo.  Launch an agentic coding tool (Claude Code, Codex CLI, or Gemini CLI) from the repo root and start working as you would for any research project.

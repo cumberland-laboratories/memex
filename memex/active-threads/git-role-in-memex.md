@@ -38,11 +38,9 @@ Git serves double duty in the Memex: backup (push to remote = offsite copy) and 
 - **Multi-session safety.** If two agents (e.g., Codex producing a report while Claude runs a session) both write to the Memex, branches prevent collisions. But the whiteboard already handles coordination, and simultaneous writes are rare.
 - **Checkpoint discipline.** Even without a gate, "commit to dev, merge to main at end of session" creates a natural rhythm: main always reflects a complete session, never a half-finished one. But `git tag` or even just disciplined commit messages could do this without a second branch.
 
-**The honest assessment:**
+**Resolution:**
 
-Right now, dev/main is ritual without function. The merge is always fast-forward, always immediate, always approved. It adds two commands per session (`checkout main`, `merge dev`) with no decision point between them. The convention was set in the constitution as a default, not derived from a requirement.
-
-It becomes functional *if and when* either (a) the enforcer gates merges, or (b) multiple operators write concurrently. Until then, it's a placeholder for a future gate.
+The dev/main split earns its keep now — not as a future placeholder. `dev` is the working branch where the chat agent makes changes that might break the Memex (structural edits, thread reorganization, procedure rewrites). `main` is the last-known-good state — a controlled, working system to compare against. If a session's changes degrade the Memex, `main` is the rollback target. The branch gap is not a review gate — it's a safety net. The merge to `main` is the human saying "this session's work is sound."
 
 ## Connections
 
@@ -52,7 +50,7 @@ It becomes functional *if and when* either (a) the enforcer gates merges, or (b)
 
 ## Open Questions
 
-- Should the constitution downgrade to single-branch until the enforcer actually gates merges?
-- If we keep two branches, should `main` represent "last audited state" rather than "mirror of dev"?
+- ~~Should the constitution downgrade to single-branch until the enforcer actually gates merges?~~ **Resolved: no. dev/main is justified now — dev for potentially breaking work, main as the known-good baseline.**
+- ~~If we keep two branches, should `main` represent "last audited state" rather than "mirror of dev"?~~ **Resolved: main = last human-approved state, not a mirror. The merge is the approval.**
 - Is there a lighter mechanism (tags, commit conventions) that provides the same checkpoint value?
 - Does the Codex/Claude multi-operator case actually need branch isolation, or is whiteboard + sequential access enough?
