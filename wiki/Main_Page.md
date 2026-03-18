@@ -1,7 +1,7 @@
 # Memex - Personal Knowledge System
 
 **Last rendered:** 2026-03-18  
-**Threads:** 4  
+**Threads:** 5  
 **Categories:** 6
 
 This page is auto-generated from the Memex thread graph. The Memex is the source of truth; this file is a rendered summary for human navigation.
@@ -28,7 +28,7 @@ This page is auto-generated from the Memex thread graph. The Memex is the source
 
 ## Categories
 
-- [Systems](#systems) - Agent Performance & Latency, Knowledge Systems Comparison, Memex Enhancements, Git's Role in the Memex
+- [Systems](#systems) - Agent Performance & Latency, Knowledge Systems Comparison, Memex Enhancements, Memex Maintenance, Git's Role in the Memex
 
 
 ## Systems
@@ -61,6 +61,19 @@ Near-term improvements to close the gap between the Memex's constitutional claim
 
 - [knowledge-systems-comparison.md](#knowledge-systems-comparison) - scaling analysis that identified graph maintenance as the failure point; Codex report assessment
 - [agent-performance-latency.md](#agent-performance--latency) - hostile critique #8 (latency as externalized labor) tracked here
+
+
+### Memex Maintenance
+
+*Active thread | hits: 1 | last touched: 2026-03-18 | tags: memex-infrastructure, tooling, maintenance, wiki, graph-health*
+
+Operational commands for maintaining the Memex: generating the wiki render, running the lint checker, and producing graph-health reports with visualization. These are the tools that keep the system honest — mechanical checks that don't depend on any model's judgment.
+
+**See also**
+
+- [memex-enhancements.md](#memex-enhancements) - graph-health instrumentation (item 1) delivered this tooling
+- [knowledge-systems-comparison.md](#knowledge-systems-comparison) - scaling analysis that identified graph maintenance as the failure point
+- [agent-performance-latency.md](#agent-performance--latency) - tool-call round trips are the latency cost of maintenance operations
 
 
 ### Git's Role in the Memex

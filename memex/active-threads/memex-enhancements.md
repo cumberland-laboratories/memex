@@ -13,11 +13,11 @@ Near-term improvements to close the gap between the Memex's constitutional claim
 
 ## Plan
 
-### 1. Graph-health instrumentation
+### 1. Graph-health instrumentation — DONE
 
-**What**: Extend `memex-lint.sh` to cover the gaps it doesn't yet check: backlink index generation, 3-hop reachability verification, and single-bridge cluster detection. Orphan detection and cross-reference integrity are already implemented.
+**What**: `scripts/graph_health.py` — a standalone companion to `memex-lint.sh` that reports backlink index, 3-hop reachability violations, single-bridge edges, and optionally renders a graph visualization (`wiki/thread-graph.png`). Uses networkx for graph operations, matplotlib for rendering. `memex-lint.sh` continues to handle orphan detection and cross-reference integrity.
 
-**Why**: The constitution claims graph connectivity as an invariant. The hostile review's sharpest line: "the repo is selling theoretical navigability before proving it." The lint script already checks some structural properties — the remaining gaps are the ones that make the invariant *testable*. Every run produces evidence.
+**Why**: The constitution claims graph connectivity as an invariant. The hostile review's sharpest line: "the repo is selling theoretical navigability before proving it." This makes the claim testable. Every run produces evidence.
 
 **Answers hostile critique**: #3 (correctness not yet by design), #4 (claims asserted not demonstrated).
 
@@ -63,4 +63,4 @@ Near-term improvements to close the gap between the Memex's constitutional claim
 
 ## Next Up
 
-- Audit `memex-lint.sh` coverage against the graph-health requirements in item 1
+- Item 2: schema tightening — audit frontmatter and templates for machine-checkable constraints
