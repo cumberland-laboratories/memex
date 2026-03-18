@@ -15,6 +15,8 @@ Usage:
 from __future__ import annotations
 
 import argparse
+import datetime as dt
+import json
 import sys
 from collections import defaultdict
 from pathlib import Path
@@ -416,6 +418,12 @@ def main() -> int:
         help="Output path for graph PNG (e.g., wiki/thread-graph.png)",
     )
     parser.add_argument(
+        "--json",
+        default=None,
+        type=Path,
+        help="Output path for health JSON (e.g., wiki/graph-health.json)",
+    )
+    parser.add_argument(
         "--max-hops",
         default=3,
         type=int,
@@ -455,6 +463,34 @@ def main() -> int:
         if not image_path.is_absolute():
             image_path = repo_root / image_path
         render_graph_image(G, path_to_title, image_path, health=health)
+
+    if args.json:
+        json_path = args.json
+        if not json_path.is_absolute():
+            json_path = repo_root / json_path
+        json_path.parent.mkdir(parents=True, exist_ok=True)
+        json_data = {
+            "date": dt.date.today().isoformat(),
+            "verdict": health["verdict"],
+            "overall": health["overall"],
+            "nodes": health["nodes"],
+            "edges": health["edges"],
+            "avg_degree": health["avg_degree"],
+            "components": health["components"],
+            "bridges": health["bridges"],
+            "orphans": health["orphans"],
+            "hop_violations": health["hop_violations"],
+            "max_hub_fraction": health["max_hub_fraction"],
+            "scores": {
+                "reachability": health["reachability_score"],
+                "resilience": health["bridge_score"],
+                "connectivity": health["orphan_score"],
+                "distribution": health["hub_score"],
+            },
+        }
+        json_path.write_text(json.dumps(json_data, indent=2) + "\n", encoding="utf-8")
+        ok(f"Health JSON saved to {json_path}")
+        print()
 
     print("==============================")
     if errors == 0:

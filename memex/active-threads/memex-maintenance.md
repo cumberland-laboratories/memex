@@ -40,11 +40,11 @@ Analyzes the thread graph for connectivity properties the lint script doesn't co
 # Report only
 python scripts/graph_health.py
 
-# Report + graph visualization
-python scripts/graph_health.py --image wiki/thread-graph.png
+# Report + graph visualization + JSON health record
+python scripts/graph_health.py --image wiki/thread-graph.png --json wiki/graph-health.json
 ```
 
-Output: terminal report, plus optional `wiki/thread-graph.png` showing the thread graph with directed edges and tier coloring.
+Output: terminal report, optional `wiki/thread-graph.png` (graph with directed edges, tier coloring, and health score panel), and optional `wiki/graph-health.json` (machine-readable health record with date, scores, orphan list, and structural stats).
 
 **Dependencies**: `pip install -r requirements.txt` (networkx, matplotlib)
 
@@ -70,6 +70,10 @@ The graph image includes a stats panel and composite health score (0-100), grade
 - **Distribution** (100 = no hub concentration, degrades when one node carries >50% of edges)
 
 Orphans and bridges are constitutional invariant violations — the scoring penalizes them heavily. A glance at the graph image tells you: is the Memex healthy right now, and where are the weak points?
+
+## Small Next Features
+
+- **More visible arrowheads on graph edges.** Current `-|>` style renders as a subtle flat bar at this scale. Switch to larger triangular arrowheads or increase arrowsize so directionality is obvious at a glance — will matter more as the graph grows.
 
 ## Open Questions
 

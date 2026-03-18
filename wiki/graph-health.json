@@ -1,0 +1,22 @@
+{
+  "date": "2026-03-18",
+  "verdict": "FAIR",
+  "overall": 76,
+  "nodes": 5,
+  "edges": 7,
+  "avg_degree": 2.8,
+  "components": 1,
+  "bridges": 1,
+  "orphans": [
+    "Git's Role in the Memex",
+    "Memex Maintenance"
+  ],
+  "hop_violations": 0,
+  "max_hub_fraction": 0.57,
+  "scores": {
+    "reachability": 100,
+    "resilience": 70,
+    "connectivity": 50,
+    "distribution": 85
+  }
+}
