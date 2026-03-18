@@ -98,6 +98,34 @@ Every thread carries annotated cross-references — not just "see also" but *why
 
 ---
 
+## How it stays honest
+
+LLMs drift. They misinterpret rules, take shortcuts, and silently degrade state over time. A governed system that depends on good behavior isn't governed — it's lucky. The Memex addresses this with three layers of integrity checking.
+
+### The enforcer
+
+The writer never reviews its own work. A different model — from a different vendor — audits the Memex read-only and produces reports. It checks for contradictions between files, missing cross-references, structural drift from the constitution, and bloat. It does not edit. It reports. The human reviews the findings and decides what to act on.
+
+This is not optional redundancy. It is the mechanism that turns soft governance into something closer to hard governance. Same-model review catches formatting errors. Cross-model review catches assumption errors.
+
+### The lint script
+
+`scripts/memex-lint.sh` is a deterministic mechanical check — no model required. It verifies compression budgets, thread sizes, frontmatter structure, cross-reference integrity, and orphan detection. It answers the question: does the Memex comply with its own constitution right now?
+
+The lint script catches what models miss: silent structural decay. A thread that grew past 60 lines. A cross-reference pointing to a file that was renamed. An artifact missing required frontmatter fields. These are not judgment calls — they are invariant violations that a shell script can flag in seconds.
+
+### The rendered wiki
+
+`scripts/generate_wiki.py` and `scripts/generate_markdown.py` render the thread graph into human-readable documentation. This is the third check: the human reads the output. Threads that looked fine as individual files may reveal gaps, redundancies, or broken narratives when rendered as a coherent document.
+
+The rendered wiki is an audit surface, not just a presentation layer. If something is wrong in the Memex, you'll see it in the wiki before you see it in the files.
+
+### The honest assessment
+
+Is this airtight? No. The enforcer can miss things. The lint script only catches what it's programmed to check. The wiki render depends on someone reading it. But the combination — model audit, mechanical check, human review — creates overlapping coverage that no single layer provides alone. The system degrades gracefully rather than silently.
+
+---
+
 ## Getting started
 
 ```bash
