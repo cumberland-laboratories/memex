@@ -1,0 +1,77 @@
+# Memex - Personal Knowledge System
+
+**Last rendered:** 2026-03-18  
+**Threads:** 4  
+**Categories:** 6
+
+This page is auto-generated from the Memex thread graph. The Memex is the source of truth; this file is a rendered summary for human navigation.
+
+**To regenerate:** `python scripts/generate_wiki.py && python scripts/generate_markdown.py`
+
+## About the Operator
+
+### Background
+- [Your role, background, interests]
+
+### Intellectual Disposition
+- [How you think, what frameworks matter to you, contrarian or conventional]
+
+### Working Style
+- [How you approach problems, what tools you use, what matters to you]
+
+### Civic Engagement
+- [Community involvement, policy interests, public work — or remove this section]
+
+### Interests
+- [What you're curious about, what you read, what pulls your attention]
+
+
+## Categories
+
+- [Systems](#systems) - Agent Performance & Latency, Knowledge Systems Comparison, Memex Enhancements, Git's Role in the Memex
+
+
+## Systems
+
+### Agent Performance & Latency
+
+*Active thread | hits: 3 | last touched: 2026-03-17 | tags: performance, latency, api, llm, tooling, forensics, memex-infrastructure*
+
+Conversational turns with a Memex-using agent average 20+ seconds and can exceed a minute. The latency is a compound of network, API queuing, prompt size, tool-call round trips, and output generation — but there are currently no forensics to attribute delay to cause. The question is whether this is compressible, and if so, where the leverage is.
+
+**See also**
+
+- [knowledge-systems-comparison.md](#knowledge-systems-comparison) - the always-loaded budget and compression rules directly affect prompt size, the biggest controllable latency factor
+
+
+### Knowledge Systems Comparison
+
+*Active thread | hits: 3 | last touched: 2026-03-17 | tags: memex, wikis, message-boards, knowledge-management, information-architecture, scalability*
+
+Comparing message boards, wikis, and the Memex as knowledge management architectures. The key axis is their relationship to time: message boards are chronological (slaves to it), wikis are revisionary (fight it to stay current), and the Memex is lifecycle-driven (rides momentum and decay). A secondary axis is social vs. personal — boards and wikis are natively social tools; the Memex is natively personal, which changes what "linking" means from topical relatedness to associative continuity.
+
+
+### Memex Enhancements
+
+*Active thread | hits: 1 | last touched: 2026-03-18 | tags: memex-infrastructure, tooling, graph-health, scaling, enhancements*
+
+Near-term improvements to close the gap between the Memex's constitutional claims and its operational reality. Derived from the ChatGPT hostile review, the internal scaling analysis, and the knowledge-systems thread. Four priorities, ordered by leverage — scoped to graph-health and schema issues. The hostile review's retrieval-axis critique (#7) and labor/latency critique (#8) are tracked in the knowledge-systems and agent-performance threads respectively, not here.
+
+**See also**
+
+- [knowledge-systems-comparison.md](#knowledge-systems-comparison) - scaling analysis that identified graph maintenance as the failure point; Codex report assessment
+- [agent-performance-latency.md](#agent-performance--latency) - hostile critique #8 (latency as externalized labor) tracked here
+
+
+### Git's Role in the Memex
+
+*Active thread | hits: 1 | last touched: 2026-03-17 | tags: git, memex, version-control, branching, backup, infrastructure*
+
+Git serves double duty in the Memex: backup (push to remote = offsite copy) and version history. The dev/main branching convention, inherited from software engineering, deserves scrutiny — it was designed for release gating in collaborative codebases, and the Memex is neither collaborative nor release-gated. The question is whether the branching overhead buys anything a single-branch workflow doesn't already provide.
+
+**See also**
+
+- [knowledge-systems-comparison.md](#knowledge-systems-comparison) - scaling analysis that implies future enforcer automation, which could activate the branch gate
+
+
+_This Markdown render was generated mechanically from the Memex thread graph. Summaries are extracted from source threads; no thread prose is synthesized during rendering._

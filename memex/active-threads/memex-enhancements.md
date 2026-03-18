@@ -59,6 +59,7 @@ Near-term improvements to close the gap between the Memex's constitutional claim
 - Should graph-health reporting be an enforcer task, a standalone script, or both?
 - What's the right cadence for schema audits — per session, per enforcer run, or triggered by structural changes?
 - Does the README edit happen before or after the tooling catches up?
+- **Model-agnostic claim is overstated.** ChatGPT hostile critique #6 is correct — not all models will work as a primary agent or even as an enforcer. The README says "any model that can read markdown and follow instructions can operate the Memex," but in practice models vary significantly in rule-following discipline, cross-reference maintenance, and constitutional adherence. The architecture is model-agnostic; the operating requirements are not. The README should reflect this honestly — perhaps "model-portable" rather than "model-agnostic," or an explicit note that the constitution demands a level of instruction-following that not all models reliably provide.
 
 ## Next Up
 
