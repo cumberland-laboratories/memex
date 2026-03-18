@@ -16,7 +16,7 @@ fine-tuning, proprietary infrastructure, or large context windows.
 
 ## What this means for you
 
-Clone this repo.  Launch Claude Code from the repo root and start working as you would for any research project.
+Clone this repo.  Launch an agentic coding tool (Claude Code, Codex CLI, or Gemini CLI) from the repo root and start working as you would for any research project.
 
 If the conversation is sufficient, Claude Code will save a thread for you automatically.  If you hit a point that is important to you, you can also say "let's make a note of this", or "let's record this please".  
 
@@ -64,7 +64,7 @@ A wiki has moderation norms. A message board has house rules. The Memex has an e
 
 ### A hard budget prevents infinite growth.
 
-Wikis grow forever. Message boards decay forever. The Memex keeps a fixed working set (~400 lines, always loaded) and demotes everything else to reference. Active topics stay on the desk. Cold topics move to the filing cabinet. Nothing is deleted — it just costs less to carry.
+Wikis grow forever. Message boards decay forever. The Memex keeps a fixed working set (~400 lines — roughly 8K tokens, leaving room for conversation in a 128K context window) and demotes everything else to reference. Active topics stay on the desk. Cold topics move to the filing cabinet. Nothing is deleted — it just costs less to carry.
 
 ### Importance is behavioral, not declared.
 
@@ -86,7 +86,7 @@ Usable context is not the same as loading everything. The system is designed so 
 
 ### What connects the tiers
 
-Every thread carries annotated cross-references — not just "see also" but *why the link exists*. The LLM enters through the active threads it already loaded and follows links outward as the conversation requires. The graph is the index. No central lookup table needed.
+Every thread carries annotated cross-references — not just "see also" but *why the link exists*. The LLM enters through the active threads it already loaded and follows links outward as the conversation requires. The design constraint: any topic should be reachable within 3 hops from any other topic in the graph. The graph is the index. No central lookup table needed.
 
 ### What keeps it lean
 
