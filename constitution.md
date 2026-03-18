@@ -18,6 +18,7 @@ The human operator is the subject. This repo is a persistence layer — it makes
 ```
 memex/
   identity.md           ← stable traits, background, persistent interests (always loaded)
+  commit_draft.md       ← session change log, used as commit message source (cleared after each commit)
   inbox.md              ← zero-friction capture (always checked at session open, then cleared)
   active-threads/       ← current topics, 5-8 files (always loaded, compression-budgeted)
   threads/              ← lightweight reference threads (NOT always loaded, navigated via links)
@@ -111,7 +112,7 @@ Precise definitions of all operating terms (thread, artifact, promotion, demotio
 - **PROCEDURES**: Executable sequences go in `memex/procedures/`. Invoked by name from the constitution. "Do this now."
 - **REFERENCE NOTES**: Cognitive aids go in `memex/reference-notes/`. Consulted situationally. "Keep this in mind."
 - **CHANGELOG**: Use `git log`. No separate changelog file.
-- **COMMIT DRAFT**: Maintain `commit_draft.md` at repo root. Append changes during the session. Use as the commit message source. Clear after each commit. Required — no commit without a draft summary. Also serves as a quick orientation aid — a new session can read `commit_draft.md` (plus the last git log entry) alongside the constitution and active threads to get oriented fast. Appended summary bullets should end with an agent suffix in the form `-<agent>` (for example `-codex` or `-claude`) so provenance remains visible.
+- **COMMIT DRAFT**: Maintain `memex/commit_draft.md`. Append changes during the session. Use as the commit message source. Clear after each commit. Required — no commit without a draft summary. Also serves as a quick orientation aid — a new session can read `memex/commit_draft.md` (plus the last git log entry) alongside the constitution and active threads to get oriented fast. Appended summary bullets should end with an agent suffix in the form `-<agent>` (for example `-codex` or `-claude`) so provenance remains visible.
 - **ENFORCER INDEPENDENCE**: The enforcer must be a different model than the chat agent. Same-model review is not enforcement.
 - **INBOX**: Capture and organization are different operations and must never be forced to happen at the same time. The inbox serves both between-session capture (human or previous session drops thoughts) and mid-session buffering (agent defers a tangential topic instead of derailing flow). Triage happens at session open or close, not mid-thought.
 - **WHITEBOARD**: Temporary shared coordination surface for multi-operator work (`memex/whiteboard.md`). Append-only while live, numbered entries with speaker labels and `RE:#N` references, cleared after routing to threads/artifacts/inbox/discard. Not always-loaded — zero cost when unused. A coordination layer, not a memory layer. Procedure: → [whiteboard-lifecycle.md](memex/procedures/whiteboard-lifecycle.md). Design: → [whiteboard-design.md](memex/reference-notes/whiteboard-design.md)

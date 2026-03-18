@@ -59,7 +59,7 @@ All of these are chat agent responsibilities, executed with the human in the loo
 
 ## Post-Audit
 
-After an enforcer audit is completed, the chat agent **must** append a summary of the audit to `commit_draft.md` — model used, finding count, and highest-priority items. The appended bullet should carry an agent suffix in the form `-<agent>` (for example `-codex`). This ensures audit results are captured in the next commit message and visible to future sessions during orientation.
+After an enforcer audit is completed, the chat agent **must** append a summary of the audit to `memex/commit_draft.md` — model used, finding count, and highest-priority items. The appended bullet should carry an agent suffix in the form `-<agent>` (for example `-codex`). This ensures audit results are captured in the next commit message and visible to future sessions during orientation.
 
 ## Cadence
 

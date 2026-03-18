@@ -34,6 +34,6 @@ When a session ends naturally or the human signs off:
 2. **Hit counts**: Batch-update any outstanding `hits:` increments not yet written.
 3. **last-touched**: Update frontmatter dates for any active threads substantively discussed.
 4. **Next Up**: If the conversation ended with clear forward intent, write or update `## Next Up` on the relevant thread(s).
-5. **Commit draft**: Append a summary of session changes to `commit_draft.md`.
+5. **Commit draft**: Append a summary of session changes to `memex/commit_draft.md`.
 
 This is lightweight — not a ceremony. If the session ends abruptly (human closes the window), the next session-open triage catches anything that was missed.
