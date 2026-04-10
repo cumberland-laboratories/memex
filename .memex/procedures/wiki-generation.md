@@ -4,16 +4,16 @@
 
 Current default outputs:
 
-- `wiki/Main_Page.wiki` in MediaWiki markup
-- `wiki/Main_Page.md` in Markdown
+- `docs/wiki/Main_Page.wiki` in MediaWiki markup
+- `docs/wiki/Main_Page.md` in Markdown
 
 The stable concept is the **documentation render**. MediaWiki is just the first render target.
 
 ## Command
 
 ```bash
-python scripts/generate_wiki.py
-python scripts/generate_markdown.py
+python .memex/scripts/generate_wiki.py
+python .memex/scripts/generate_markdown.py
 ```
 
 ## Pipeline
@@ -46,15 +46,15 @@ Do not build a plugin system or platform-specific schema until multiple targets 
 
 **Current architecture:** The primary agent runs the generator on request or after substantial Memex updates.
 
-**Future architecture:** The enforcer or a scheduled job may run the same command. The operation remains read-only on `memex/` and writes only to `wiki/`.
+**Future architecture:** The enforcer or a scheduled job may run the same command. The operation remains read-only on `memex/` and writes only to `docs/wiki/`.
 
 ## Access
 
-**Read-only** on the Memex. **Write** only to `wiki/` directory.
+**Read-only** on the Memex. **Write** only to `docs/wiki/` directory.
 
 ## Notes
 
-- `wiki/Main_Page.wiki` and `wiki/Main_Page.md` are single-page renders of the thread graph, not separate pages per thread.
+- `docs/wiki/Main_Page.wiki` and `docs/wiki/Main_Page.md` are single-page renders of the thread graph, not separate pages per thread.
 - Thread prose is extracted from `## Summary` only. Detail sections, Open Questions, and Next Up do not render into the output.
 - Identity rendering is deterministic because the source sections are fixed by name.
 - If the output looks wrong, fix the Memex source or the generator — do not hand-edit generated render files.

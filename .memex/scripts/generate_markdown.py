@@ -138,7 +138,13 @@ def render_main_page(repo_root: Path, output_path: Path) -> str:
         "",
         "This page is auto-generated from the Memex thread graph. The Memex is the source of truth; this file is a rendered summary for human navigation.",
         "",
-        "**To regenerate:** `python scripts/generate_wiki.py && python scripts/generate_markdown.py`",
+        "**To regenerate:** `python .memex/scripts/generate_wiki.py && python .memex/scripts/generate_markdown.py`",
+        "",
+        "**Memex CLI** (`python .memex/scripts/memex.py`):",
+        "- `memex status` — graph health, inbox count, patterns due, active threads (`--full` for complete state dump)",
+        "- `memex search <query>` — full-text search across threads, artifacts, designs, reports",
+        "- `memex read <type> <name>` — render thread/artifact/design/report (`--section` for specific sections)",
+        "- Add `--format json` for structured agent output, `--role <name>` for role-aware views",
         "",
     ]
 
@@ -181,13 +187,13 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
         "--repo-root",
-        default=Path(__file__).resolve().parents[1],
+        default=Path(__file__).resolve().parents[2],
         type=Path,
         help="Path to the repository root.",
     )
     parser.add_argument(
         "--output",
-        default=Path("wiki/Main_Page.md"),
+        default=Path("docs/wiki/Main_Page.md"),
         type=Path,
         help="Output path, relative to repo root unless absolute.",
     )

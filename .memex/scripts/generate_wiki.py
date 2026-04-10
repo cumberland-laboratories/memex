@@ -53,6 +53,7 @@ class Thread:
     title: str
     summary_lines: list[str]
     connection_lines: list[str]
+    graph: str = "user"  # graph namespace: "design", "user", or custom
 
 
 def parse_frontmatter(text: str) -> tuple[dict[str, str], str]:
@@ -128,6 +129,7 @@ def load_thread(path: Path, tier_label: str) -> Thread:
         title=title,
         summary_lines=summary_lines,
         connection_lines=connection_lines,
+        graph=frontmatter.get("graph", "user"),
     )
 
 
@@ -341,7 +343,13 @@ def render_main_page(repo_root: Path, output_path: Path) -> str:
         "",
         "This wiki is auto-generated from the Memex thread graph. The Memex is the source of truth; this page is a rendered summary for human navigation.",
         "",
-        "'''To regenerate:''' <code>python scripts/generate_wiki.py && python scripts/generate_markdown.py</code>",
+        "'''To regenerate:''' <code>python .memex/scripts/generate_wiki.py && python .memex/scripts/generate_markdown.py</code>",
+        "",
+        "'''Memex CLI''' (<code>python .memex/scripts/memex.py</code>):",
+        "* <code>memex status</code> — graph health, inbox count, patterns due, active threads (<code>--full</code> for complete state dump)",
+        "* <code>memex search <query></code> — full-text search across threads, artifacts, designs, reports",
+        "* <code>memex read <type> <name></code> — render thread/artifact/design/report (<code>--section</code> for specific sections)",
+        "* Add <code>--format json</code> for structured agent output, <code>--role <name></code> for role-aware views",
         "",
     ]
 
@@ -391,13 +399,13 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
         "--repo-root",
-        default=Path(__file__).resolve().parents[1],
+        default=Path(__file__).resolve().parents[2],
         type=Path,
         help="Path to the repository root.",
     )
     parser.add_argument(
         "--output",
-        default=Path("wiki/Main_Page.wiki"),
+        default=Path("docs/wiki/Main_Page.wiki"),
         type=Path,
         help="Output path, relative to repo root unless absolute.",
     )

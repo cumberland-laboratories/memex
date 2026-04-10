@@ -1,9 +1,11 @@
 ---
 last-touched: 2026-03-18
-category: cognition
+category: essay
 hits: 1
-tags: [adversarial-review, turing-test, prompt-caching, methodology, multi-model, context-contamination]
+tags: [adversarial-review, turing-test, prompt-caching, methodology, multi-model, context-contamination, essay]
 ---
+
+> *Memex architecture essay — preserved from this reference instance's earlier development as the Memex about the Memex. Not a working thread for the active project; historical thinking about the architecture itself.*
 
 # Adversarial Review & Assessment Methods
 

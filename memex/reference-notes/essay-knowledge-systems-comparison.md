@@ -1,9 +1,11 @@
 ---
 last-touched: 2026-03-17
-category: systems
+category: essay
 hits: 3
-tags: [memex, wikis, message-boards, knowledge-management, information-architecture, scalability]
+tags: [memex, wikis, message-boards, knowledge-management, information-architecture, scalability, essay]
 ---
+
+> *Memex architecture essay — preserved from this reference instance's earlier development as the Memex about the Memex. Not a working thread for the active project; historical thinking about the architecture itself.*
 
 # Knowledge Systems Comparison
 

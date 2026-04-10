@@ -1,9 +1,11 @@
 ---
 last-touched: 2026-03-17
-category: systems
+category: essay
 hits: 3
-tags: [performance, latency, api, llm, tooling, forensics, memex-infrastructure]
+tags: [performance, latency, api, llm, tooling, forensics, memex-infrastructure, essay]
 ---
+
+> *Memex architecture essay — preserved from this reference instance's earlier development as the Memex about the Memex. Not a working thread for the active project; historical thinking about the architecture itself.*
 
 # Agent Performance & Latency
 

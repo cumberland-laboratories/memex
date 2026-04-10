@@ -10,11 +10,11 @@ The enforcer — a **different model** than the chat agent. Never the same model
 
 ## Input
 
-The entire Memex: `identity.md`, all active threads, all lightweight threads, `patterns/` (rhythms), `friction.md`, and the constitution (`constitution.md`). Artifacts loaded as needed for cross-reference verification.
+The entire Memex: `identity.md`, all active threads, all lightweight threads, `patterns.md` (rhythms), and both constitution layers (`constitution-core.md` and `constitution.md`). Artifacts loaded as needed for cross-reference verification.
 
 ## Output
 
-An audit report written to `reports/YYYY-MM-DD-enforcer-audit.md` with findings organized by category:
+An audit report written to `docs/reports/YYYY-MM-DD-enforcer-audit.md` with findings organized by category:
 
 ### Report Structure
 
@@ -36,13 +36,13 @@ Claims in one thread that conflict with another, or with identity.md.
 Threads exceeding 60 lines, or always-loaded budget over 400 lines.
 - [thread name] — [n] lines, recommendation: split (seam at [section]) / compress / demote
 
-## Friction Log Review
-Patterns in friction.md that suggest structural changes.
-- Pattern: [description] — recommendation: promote artifact / retag cluster / resize thread
-
 ## Cross-Reference Integrity
 Broken links, orphaned threads (no inbound references), or missing annotations.
 - [thread name] → [broken link] — recommendation: fix path / add annotation
+
+## Graph Health (v2.1)
+Run `graph_health.py --json` and follow → [graph-health-response.md](graph-health-response.md) for triage.
+Report per-dimension scores and any yellow/red findings.
 
 ## Summary
 [2-3 sentences: overall health of the Memex, highest-priority action items]

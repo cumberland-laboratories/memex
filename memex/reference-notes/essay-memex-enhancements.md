@@ -1,9 +1,11 @@
 ---
 last-touched: 2026-03-18
-category: systems
+category: essay
 hits: 1
-tags: [memex-infrastructure, tooling, graph-health, scaling, enhancements]
+tags: [memex-infrastructure, tooling, graph-health, scaling, enhancements, essay]
 ---
+
+> *Memex architecture essay — preserved from this reference instance's earlier development as the Memex about the Memex. Not a working thread for the active project; historical thinking about the architecture itself.*
 
 # Memex Enhancements
 

@@ -1,9 +1,11 @@
 ---
 last-touched: 2026-03-17
-category: systems
+category: essay
 hits: 1
-tags: [git, memex, version-control, branching, backup, infrastructure]
+tags: [git, memex, version-control, branching, backup, infrastructure, essay]
 ---
+
+> *Memex architecture essay — preserved from this reference instance's earlier development as the Memex about the Memex. Not a working thread for the active project; historical thinking about the architecture itself.*
 
 # Git's Role in the Memex
 
