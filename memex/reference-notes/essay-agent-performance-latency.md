@@ -81,7 +81,7 @@ However, Claude Code supports background agents (subagents that run independentl
 
 ## Connections
 
-→ [knowledge-systems-comparison.md](knowledge-systems-comparison.md) — the always-loaded budget and compression rules directly affect prompt size, the biggest controllable latency factor
+→ [knowledge-systems-comparison.md](essay-knowledge-systems-comparison.md) — the always-loaded budget and compression rules directly affect prompt size, the biggest controllable latency factor
 → [constitution.md](../../constitution.md) — defines the 400-line compression budget and session-opening file loads
 → [tooling-roadmap.md](../reference-notes/tooling-roadmap.md) — Crawler/Spider as background operators would shift work out of interactive sessions
 

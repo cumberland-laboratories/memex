@@ -47,7 +47,7 @@ The dev/main split earns its keep now — not as a future placeholder. `dev` is 
 ## Connections
 
 → [constitution.md](../../constitution.md) — defines the dev/main convention and enforcer role
-→ [knowledge-systems-comparison.md](knowledge-systems-comparison.md) — scaling analysis that implies future enforcer automation, which could activate the branch gate
+→ [knowledge-systems-comparison.md](essay-knowledge-systems-comparison.md) — scaling analysis that implies future enforcer automation, which could activate the branch gate
 → [tooling-roadmap.md](../reference-notes/tooling-roadmap.md) — Crawler and Spider operators that might eventually write to dev
 
 ## Open Questions

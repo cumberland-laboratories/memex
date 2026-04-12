@@ -58,9 +58,9 @@ Output: terminal report, optional `wiki/thread-graph.png` (graph with directed e
 
 ## Connections
 
-→ [memex-enhancements.md](memex-enhancements.md) — graph-health instrumentation (item 1) delivered this tooling
-→ [knowledge-systems-comparison.md](knowledge-systems-comparison.md) — scaling analysis that identified graph maintenance as the failure point
-→ [agent-performance-latency.md](agent-performance-latency.md) — tool-call round trips are the latency cost of maintenance operations
+→ [memex-enhancements.md](essay-memex-enhancements.md) — graph-health instrumentation (item 1) delivered this tooling
+→ [knowledge-systems-comparison.md](essay-knowledge-systems-comparison.md) — scaling analysis that identified graph maintenance as the failure point
+→ [agent-performance-latency.md](essay-agent-performance-latency.md) — tool-call round trips are the latency cost of maintenance operations
 
 ## Health Score
 

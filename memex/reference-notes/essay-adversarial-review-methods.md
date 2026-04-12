@@ -45,8 +45,8 @@ The first pass is the most valuable because it's the cleanest. Every subsequent 
 
 ## Connections
 
-→ [memex-enhancements.md](memex-enhancements.md) — adversarial review findings drove the enhancement priorities
-→ [knowledge-systems-comparison.md](knowledge-systems-comparison.md) — multi-model architecture depends on clean enforcer context
+→ [memex-enhancements.md](essay-memex-enhancements.md) — adversarial review findings drove the enhancement priorities
+→ [knowledge-systems-comparison.md](essay-knowledge-systems-comparison.md) — multi-model architecture depends on clean enforcer context
 → [2026-03-18-chatgpt-hostile-review.md](../artifacts/2026-03-18-chatgpt-hostile-review.md) — first (cleanest) hostile review
 → [2026-03-18-chatgpt-hostile-review-2.md](../artifacts/2026-03-18-chatgpt-hostile-review-2.md) — second review showing degradation from context contamination
 
