@@ -64,27 +64,27 @@ The human role is not supervisory — it is architectural. The human is the prin
 
 ## Not a message board, not a wiki
 
-It borrows from both. Cross-linked pages from wikis. Thread lifecycle from message boards. But the thing it does that neither can:
+It borrows from both. Cross-linked pages from wikis. Thread lifecycle from message boards. But the thing it does that neither can: ([How is it different?](memex/reference-notes/essay-knowledge-systems-comparison.md))
 
 ### The knowledge layer maintains itself.
 
-A wiki requires humans to keep it current. A message board lets everything sink under new activity. The Memex updates its own pages as a side effect of conversation — documentation nobody has to write.
+A wiki requires humans to keep it current. A message board lets everything sink under new activity. The Memex updates its own pages as a side effect of conversation — documentation nobody has to write. ([How?](memex/reference-notes/design-pattern-reinforcing-loops.md))
 
 ### Orientation is pre-loaded, not searched.
 
-A wiki waits for you to search it. A message board waits for you to browse it. The Memex loads your active working set before you say anything. The LLM already knows what you were working on yesterday.
+A wiki waits for you to search it. A message board waits for you to browse it. The Memex loads your active working set before you say anything. The LLM already knows what you were working on yesterday. ([How?](.memex/procedures/session-lifecycle.md))
 
 ### Governance is machine-readable.
 
-A wiki has moderation norms. A message board has house rules. The Memex has an executable constitution — what to capture, what to ignore, when to compress, when to archive, who can do what. Encode the rules once, and the system can check its own compliance — mechanically, every session.
+A wiki has moderation norms. A message board has house rules. The Memex has an executable constitution — what to capture, what to ignore, when to compress, when to archive, who can do what. Encode the rules once, and the system can check its own compliance — mechanically, every session. ([How?](constitution-core.md))
 
 ### A hard budget prevents infinite growth.
 
-Wikis grow forever. Message boards decay forever. The Memex keeps a fixed working set (~400 lines — roughly 8K tokens, leaving room for conversation in a 128K context window) and demotes everything else to reference. Active topics stay on the desk. Cold topics move to the filing cabinet. Nothing is deleted — it just costs less to carry.
+Wikis grow forever. Message boards decay forever. The Memex keeps a fixed working set (~400 lines — roughly 8K tokens, leaving room for conversation in a 128K context window) and demotes everything else to reference. Active topics stay on the desk. Cold topics move to the filing cabinet. Nothing is deleted — it just costs less to carry. ([How?](memex/reference-notes/budget-accounting.md))
 
 ### Importance is behavioral, not declared.
 
-Wikis don't know what matters. Message boards use votes and views. The Memex tracks what you actually return to. The system self-organizes around real attention, not stated priorities.
+Wikis don't know what matters. Message boards use votes and views. The Memex tracks what you actually return to. The system self-organizes around real attention, not stated priorities. ([How?](.memex/procedures/thread-lifecycle.md))
 
 ---
 
@@ -99,6 +99,8 @@ Usable context is not the same as loading everything. The system is designed so 
 **Lightweight threads** live in the repo but never auto-load. They hold reference material, cooled-off topics, background knowledge. The LLM navigates to them on demand through cross-references — not search, not retrieval, but following links the way you'd click through a wiki.
 
 **Artifacts** are deep records — synopses, research notes, conversation captures. Write-once, read-rarely. They exist to be *findable*, not to be in working memory. Tagged frontmatter and summaries let the LLM decide whether to load the full file.
+
+([How do the tiers work?](memex/reference-notes/depth-layers.md))
 
 ### What connects the tiers
 
@@ -122,19 +124,19 @@ LLMs drift. They misinterpret rules, take shortcuts, and silently degrade state 
 
 The writer never reviews its own work. A different model — from a different vendor — audits the Memex read-only and produces reports. It checks for contradictions between files, missing cross-references, structural drift from the constitution, and bloat. It does not edit. It reports. The human reviews the findings and decides what to act on.
 
-This is not optional redundancy. It is the mechanism that turns soft governance into something closer to hard governance. Same-model review catches formatting errors. Cross-model review catches assumption errors.
+This is not optional redundancy. It is the mechanism that turns soft governance into something closer to hard governance. Same-model review catches formatting errors. Cross-model review catches assumption errors. ([How?](.memex/procedures/enforcer-audit.md) | [Why cross-model?](memex/reference-notes/essay-adversarial-review-methods.md))
 
 ### The lint script
 
 `.memex/scripts/memex-lint.sh` is a deterministic mechanical check — no model required. It verifies compression budgets, thread sizes, frontmatter structure, cross-reference integrity, and orphan detection. It answers the question: does the Memex comply with its own constitution right now?
 
-The lint script catches what models miss: silent structural decay. A thread that grew past 60 lines. A cross-reference pointing to a file that was renamed. An artifact missing required frontmatter fields. These are not judgment calls — they are invariant violations that a shell script can flag in seconds.
+The lint script catches what models miss: silent structural decay. A thread that grew past 60 lines. A cross-reference pointing to a file that was renamed. An artifact missing required frontmatter fields. These are not judgment calls — they are invariant violations that a shell script can flag in seconds. ([See the script](.memex/scripts/memex-lint.sh))
 
 ### The rendered wiki
 
 `.memex/scripts/generate_wiki.py` and `.memex/scripts/generate_markdown.py` render the thread graph into human-readable documentation. This is the third check: the human reads the output. Threads that looked fine as individual files may reveal gaps, redundancies, or broken narratives when rendered as a coherent document.
 
-The rendered wiki is an audit surface, not just a presentation layer. If something is wrong in the Memex, you'll see it in the wiki before you see it in the files.
+The rendered wiki is an audit surface, not just a presentation layer. If something is wrong in the Memex, you'll see it in the wiki before you see it in the files. ([See the output](docs/wiki/Main_Page.md))
 
 ### The honest assessment
 
