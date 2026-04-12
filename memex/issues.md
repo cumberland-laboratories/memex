@@ -4,9 +4,9 @@
 
 When a tool returns a large file (>500 lines), it gets stuffed into context verbatim. No truncation, no summarization. One careless `read_file("package-lock.json")` and the budget is gone. Need a content-aware truncation strategy that preserves the useful parts — but "useful" is task-dependent, which makes this hard.
 
-## 2. No retry or backoff for rate limits
+## ~~2. No retry or backoff for rate limits~~ (resolved)
 
-The Anthropic SDK throws on 429s and tinyagent just... stops. There's no retry logic, no exponential backoff, no graceful queuing. For a teaching tool this is fine until you're demoing it live and it falls over mid-task. At minimum need a simple retry with jitter.
+~~The Anthropic SDK throws on 429s and tinyagent just... stops.~~ Fixed in `client.py`: `_call_with_retry` implements exponential backoff with jitter, 3 retries on `RateLimitError`. Resolved 2026-04-11.
 
 ## 3. No graceful degradation when context budget exceeded mid-turn
 

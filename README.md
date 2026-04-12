@@ -122,13 +122,13 @@ This is not optional redundancy. It is the mechanism that turns soft governance 
 
 ### The lint script
 
-`scripts/memex-lint.sh` is a deterministic mechanical check — no model required. It verifies compression budgets, thread sizes, frontmatter structure, cross-reference integrity, and orphan detection. It answers the question: does the Memex comply with its own constitution right now?
+`.memex/scripts/memex-lint.sh` is a deterministic mechanical check — no model required. It verifies compression budgets, thread sizes, frontmatter structure, cross-reference integrity, and orphan detection. It answers the question: does the Memex comply with its own constitution right now?
 
 The lint script catches what models miss: silent structural decay. A thread that grew past 60 lines. A cross-reference pointing to a file that was renamed. An artifact missing required frontmatter fields. These are not judgment calls — they are invariant violations that a shell script can flag in seconds.
 
 ### The rendered wiki
 
-`scripts/generate_wiki.py` and `scripts/generate_markdown.py` render the thread graph into human-readable documentation. This is the third check: the human reads the output. Threads that looked fine as individual files may reveal gaps, redundancies, or broken narratives when rendered as a coherent document.
+`.memex/scripts/generate_wiki.py` and `.memex/scripts/generate_markdown.py` render the thread graph into human-readable documentation. This is the third check: the human reads the output. Threads that looked fine as individual files may reveal gaps, redundancies, or broken narratives when rendered as a coherent document.
 
 The rendered wiki is an audit surface, not just a presentation layer. If something is wrong in the Memex, you'll see it in the wiki before you see it in the files.
 
@@ -152,18 +152,24 @@ Or just download the files. The Memex is constructed with markdown, git, adversa
 ## Repo structure
 
 ```
-constitution.md             ← the rules file (governs everything)
-memex/
-  identity.md               ← who you are (you fill this in over time)
-  inbox.md                  ← zero-friction capture (drop anything here)
+constitution-core.md         ← portable governance (roles, lifecycle, conventions)
+constitution.md              ← domain rules for this instance
+.memex/                      ← portable machinery (don't modify)
+  scripts/                   ← CLI, lint, wiki generation, graph health
+  procedures/                ← session lifecycle, thread lifecycle, audits
+  policies/                  ← concierge decision trees
+  roles.yaml                 ← role definitions (PI, agent, enforcer, crawler)
+memex/                       ← the knowledge graph
+  identity.md                ← who you are (you fill this in over time)
+  mission.md                 ← what you're building and why
+  inbox.md                   ← zero-friction capture (drop anything here)
   active-threads/            ← current topics (loaded every session)
   threads/                   ← reference threads (loaded on demand)
-  artifacts/                 ← deep records, synopses (loaded on demand)
-  patterns/                  ← recurring obligations (bills, renewals)
-  vault/                     ← external files: PDFs, papers (gitignored)
-  procedures/                ← how the system operates
+  artifacts/                 ← deep records, decision records (loaded on demand)
   reference-notes/           ← design rationale and cognitive aids
-scripts/                     ← optional lint and render tools
+  vault/                     ← external files: PDFs, papers (gitignored)
+tinyagent/                   ← illustrative project (pure Python coding assistant)
+docs/                        ← systems docs, reports, wiki renders
 ```
 
 ---
