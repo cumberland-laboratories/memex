@@ -16,7 +16,7 @@ fine-tuning, proprietary infrastructure, or large context windows.
 
 ## What this means for you
 
-**This repo is a working example.** It contains a populated Memex with a fictional PI ("Ren"), an illustrative project (`tinyagent`), real threads, real cross-references, and real enforcer reports. Browse it on GitHub to see how the pieces fit together. When you're ready to build your own, clear the content and start fresh — the architecture and machinery carry over.
+**This repo is a working example.** The showcase is the Memex itself — the threads, cross-references, artifacts, enforcer reports, and the governance that holds them together. `tinyagent/` is just a small example Python project that gives the Memex something to manage; the code is not the point. The fictional PI ("Ren") demonstrates what a populated identity looks like. Browse it on GitHub to see how the pieces fit together. When you're ready to build your own, clear the content and start fresh — the architecture and machinery carry over.
 
 Here's what using your own Memex looks like:
 
