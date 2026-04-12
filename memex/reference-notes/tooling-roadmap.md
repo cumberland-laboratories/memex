@@ -6,24 +6,27 @@ Status tracker for scripts, background operators, and automation. Check this bef
 
 | Script | Purpose | Status |
 |--------|---------|--------|
-| `scripts/generate_wiki.py` | MediaWiki render from thread graph | Working |
-| `scripts/generate_markdown.py` | Markdown render from thread graph | Working |
-| `scripts/memex-lint.sh` | Budget compliance, thread sizes, frontmatter, cross-references, orphan detection | Working |
+| `.memex/scripts/generate_wiki.py` | MediaWiki render from thread graph | Working |
+| `.memex/scripts/generate_markdown.py` | Markdown render from thread graph | Working |
+| `.memex/scripts/memex-lint.sh` | Budget compliance, thread sizes, frontmatter, cross-references, orphan detection | Working |
+| `.memex/scripts/graph_health.py` | Graph health scoring (v2 subway model), cluster detection, bridge analysis, visualization | Working |
+| `.memex/scripts/memex.py` | Session status CLI: graph health, inbox, patterns, active threads, full state dump | Working |
+| `.memex/scripts/crawler.py` | Automated graph maintenance: health check → triage → optional Sonnet-powered fixes | Working |
+| `.memex/scripts/spawn.py` | Create a new Memex from seed threads, copying portable skeleton, repairing subgraph | Working |
 
 ## Scripts — Planned
 
 | Script | Purpose | Priority | Notes |
 |--------|---------|----------|-------|
-| Artifact INDEX.md generator | Parse artifact frontmatter, regenerate INDEX.md (by-date, by-tag, external-sources views) | Medium | Currently manual. Referenced in constitution, self-documenting-systems thread, INDEX.md header. Intended as enforcer task. |
-| Batch state-dump for session open | Single script that outputs inbox, patterns, audit-tracker, active thread summaries — reduces 14 tool calls to 1 | Low | Friction log 2026-03-15, session-opening-ux thread. UX improvement, not functional blocker. |
-| Blind review automation | Strip authorship markers and send to fresh model instance for unbiased review | Low | adversarial-review-techniques thread. Speculative — needs design work. |
+| Artifact INDEX.md generator | Parse artifact frontmatter, regenerate INDEX.md (by-date, by-tag views) | Medium | Currently manual. Intended as enforcer task. |
+| Blind review automation | Strip authorship markers and send to fresh model instance for unbiased review | Low | Speculative — needs design work. |
 
-## Background Operators — Defined, Not Implemented
+## Background Operators — Defined
 
-| Operator | Type | Purpose | Priority | Notes |
-|----------|------|---------|----------|-------|
-| **Crawler** | Scheduled, deterministic | Compression budget checks, lifecycle enforcement, stale thread detection, missing backlink detection, candidate demotions/promotions | Near-term | Cheap model can do this. Rule-following, not reasoning. Could be a cron job or git hook invoking a model against the thread directory. Produces candidate changes for human review. |
-| **Spider** | Stochastic, exploratory | Random thread pairs, missed cross-references, unexpected connections, concept bridges | Later-stage | Suggestion-oriented, merge-gated. Proposes, never silently edits. Requires more design before implementation. |
+| Operator | Type | Purpose | Status | Notes |
+|----------|------|---------|--------|-------|
+| **Crawler** | Scheduled, deterministic | Compression budget checks, lifecycle enforcement, stale thread detection, missing backlink detection, candidate demotions/promotions | **Shipped** | `crawler.py` with `--fix` mode invokes Sonnet for proposed fixes on a maintenance branch. |
+| **Spider** | Stochastic, exploratory | Random thread pairs, missed cross-references, unexpected connections, concept bridges | Not implemented | Suggestion-oriented, merge-gated. Proposes, never silently edits. Requires more design before implementation. |
 
 ## Render Pipeline — Future
 
@@ -34,6 +37,6 @@ Status tracker for scripts, background operators, and automation. Check this bef
 
 ## Implementation Notes
 
-- Crawler is the highest-value near-term automation. It's the most scriptable and addresses real maintenance pressure as the thread count grows.
 - All background operators produce candidate deltas for human review — no silent edits.
-- The `memex-lint.sh` script already covers some crawler-like checks (budget, thread sizes). A crawler extends this with model-powered semantic checks (stale content, missing connections).
+- The `memex-lint.sh` script covers deterministic checks (budget, thread sizes). The crawler extends this with model-powered semantic checks (stale content, missing connections).
+- The `spawn.py` script is the adoption path — create a fresh Memex without manually cleaning example content.

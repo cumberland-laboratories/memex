@@ -64,7 +64,7 @@ tags: [list, of, keywords]
 Link to related threads and artifacts using relative paths. Annotate *why* the link exists:
 
 ```
-→ [Finitist Probability](finitist-probability.md) — grids as spatially embodied reasoning
+→ [Context Budget Economics](context-budget-economics.md) — budget model that governs compaction decisions
 ```
 
 ## Discovery (three mechanisms, in order)

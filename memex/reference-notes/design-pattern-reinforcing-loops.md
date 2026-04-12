@@ -4,7 +4,7 @@
 
 Every process in the system must have both an input source and an output consumer. No process produces dead-end output. No process consumes input that nothing produces. The system is a closed network of mutually reinforcing loops.
 
-This is the design pattern that makes learnhub's constitutional architecture tight: code → charters → flows → enforcement → corrections → code. Each process feeds another. The system iteratively improves through its own operation.
+This is the design pattern that makes constitutional architecture tight: threads → wiki pipeline → enforcer audit → corrections → threads. Each process feeds another. The system iteratively improves through its own operation.
 
 ## Application to the Memex
 
