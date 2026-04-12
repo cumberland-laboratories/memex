@@ -203,6 +203,18 @@ The annotation on every cross-reference must explain *why* the link exists — n
 
 ---
 
+## The PI's study plan
+
+The principal investigator is not a passenger. The PI makes architectural decisions — what to build, what to cut, which model's assessment to trust, when the enforcer is right and when it's wrong. That requires genuine understanding of the technology, not just familiarity with the tooling.
+
+The Memex can help here too. The primary agent can build a structured study plan — a syllabus — tailored to the PI's project and knowledge gaps. Resources, key concepts, whiteboard tests, cross-references back into the project's threads. The agent knows what you're building and what you need to understand to build it well.
+
+This is a pattern most people don't expect from an AI assistant: not just doing the work, but identifying what the human needs to learn to direct the work effectively. The agent builds the curriculum. The PI does the learning. The project benefits from a PI who can evaluate tradeoffs from first principles, not just defer to the model's judgment.
+
+([See the example syllabus for this project](memex/reference-notes/syllabus.md))
+
+---
+
 ## License
 
 MIT. See [LICENSE](LICENSE).
