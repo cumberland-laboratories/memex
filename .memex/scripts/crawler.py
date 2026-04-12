@@ -340,7 +340,7 @@ def build_sonnet_prompt(health: dict, findings: list[dict], procedure_text: str,
     - For link targets in the LINE, use paths relative to the source file's directory
     - Every added connection must be semantically genuine — the REASON must explain WHY
     - No thread should have fewer than 2 outbound connections after changes
-    - Do not add connections just to improve a score — the Gillettes principle applies
+    - Do not add connections just to improve a score — the multi-interest principle applies
     - Prefer adding one well-chosen link over multiple weak ones
     - For orphans: add one inbound link from the most semantically related cluster neighbor
     - For bridges: add one redundant path via a third thread related to both endpoints

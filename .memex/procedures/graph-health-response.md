@@ -33,7 +33,7 @@ Each dimension has a threshold band. Green = no action. Yellow = flag in report.
 | Yellow | 70–89 | Report the intra-cluster violations. Suggest candidate transfer station links. |
 | Red | < 70 | Propose specific links to resolve intra-cluster violations. Prioritize by hop distance (worst first). |
 
-**How to fix**: Add a connection between two threads in the same cluster that are >3 hops apart. The connection must be semantically genuine — annotate *why* the link exists. If no genuine semantic bridge exists, note this as a legitimate multi-interest gap (the Gillettes principle) and do not force an artificial connection.
+**How to fix**: Add a connection between two threads in the same cluster that are >3 hops apart. The connection must be semantically genuine — annotate *why* the link exists. If no genuine semantic bridge exists, note this as a legitimate multi-interest gap (the multi-interest principle) and do not force an artificial connection.
 
 **Cross-cluster violations**: These are informational. Do not propose fixes for cross-cluster distances unless overall navigability drops below 70. The graph is a multi-interest personal network, not a fully connected mesh.
 
@@ -101,7 +101,7 @@ Include:
 - Cluster summary (names and sizes)
 - Specific findings per dimension (only yellow/red bands)
 - Proposed fixes with semantic justification for each
-- Any Gillettes-principle notes (legitimate gaps, do not force)
+- Any multi-interest-principle notes (legitimate gaps, do not force)
 
 ## Step 4: Propose fixes (Crawler mode)
 
@@ -117,7 +117,7 @@ When running as the Crawler (not a read-only audit):
 
 **Semantic integrity over graph score.** Every connection must be semantically genuine. A high health score achieved through artificial links is worse than a lower score with honest connections. The annotation on each link must explain *why* the link exists, not just that it improves a metric.
 
-**The Gillettes principle.** A personal Memex serves multiple unrelated interests. A thread about family history has no natural bridge to a thread about Fourier analysis, and that is fine. Do not penalize legitimate multi-interest gaps. When Louvain places unrelated threads in the same cluster, note the artifact and move on.
+**The multi-interest principle.** A personal Memex serves multiple unrelated interests. A thread about family history has no natural bridge to a thread about Fourier analysis, and that is fine. Do not penalize legitimate multi-interest gaps. When Louvain places unrelated threads in the same cluster, note the artifact and move on.
 
 **Pruning is a proposal, not an action.** The enforcer and Crawler propose pruning candidates. Only the chat agent (with human present) executes pruning. This is because pruning removes human-navigable "see also" links that may have value beyond graph topology.
 

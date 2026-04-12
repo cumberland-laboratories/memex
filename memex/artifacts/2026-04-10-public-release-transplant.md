@@ -1,9 +1,13 @@
 ---
-last-touched: 2026-04-10
-category: design
-hits: 0
-tags: [handoff, public-release, tinyagent, reference-instance, MIT-license, restructure]
+date: 2026-04-10
+depth: deep
+tags: [handoff, public-release, tinyagent, reference-instance, restructure]
+source-thread: session-handoff
+source: claude
+summary: Full phased plan for the public-release-prep branch — architectural transplant from cl-memex, tinyagent scaffolding, Memex population, machinery validation, and polish.
 ---
+
+*Archived from `active-threads/session-handoff.md` on 2026-04-12 after completion of all phases.*
 
 # Session Handoff — Public Release Prep
 

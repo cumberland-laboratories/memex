@@ -6,7 +6,7 @@ roles:
     description: Principal investigator — full access, mission authority, architectural coherence, shop-floor audit
     model: null
     permissions: [all]
-    provenance: -alan
+    provenance: -ren
     session-open-emphasis: [roadmap, inbox, patterns, sprint]
 
   agent:

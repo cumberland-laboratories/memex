@@ -4,4 +4,9 @@ Drop anything here. No formatting needed. The chat agent triages at session open
 
 ---
 
-- **READ FIRST**: `memex/active-threads/session-handoff.md` contains the full plan for this session. The repo was restructured on 2026-04-10 (public-release-prep branch) to serve as the public MIT reference instance of the Memex architecture. Your job is to author `tinyagent/` (design-quality skeleton, not a working product), populate its Memex (7 active-threads headlined by `context-budget-economics`, 3 artifacts, reference-notes, systems docs), and run the machinery (graph_health, crawler, enforcer, wiki). The handoff thread has the full phased plan — start there. Do not bootstrap identity; PI is fictional "Ren", populated as part of Phase C. -claude
+- Should tool schemas carry example invocations? The current bare JSON Schema is correct but gives Claude no usage hints. Could add an `examples` key to each tool definition — but that burns context tokens on every turn. Tradeoff unclear.
+- prompt caching for the system prompt would cut costs on long sessions but
+- The context-budget thread needs a concrete answer on token accounting: do we count tool-result tokens against the budget at insertion time or at API-call time? They're different numbers if compression happened between.
+- Wondering if `session.json` should actually be JSONL — one line per turn instead of a monolithic object. Would make partial reads and crash recovery trivial. Downside: harder to load the full session for replay.
+- The anthropic SDK streaming interface is awkward for tool use — you get content deltas and tool_use deltas interleaved, and there's no clean way to know a tool call is "complete" until the next event arrives. Filed mentally under "things I'd redesign."
+- Trail race in October. Need to figure out taper schedule. (Not relevant but this is inbox.)
