@@ -26,7 +26,7 @@ Operating language for the Memex system. Each term has a defined meaning, scope,
 | **Hit** | One substantive engagement with a thread in a session | Thread is a focus of discussion (not incidental mention) | Frontmatter `hits:` incremented by 1 |
 | **Triage** | Processing inbox entries at session open or close | Session opening (inbox non-empty) or session close (inbox accumulated mid-session entries) | Each entry routed to a thread, new thread created, or surfaced for discussion |
 | **Mid-session capture** | Appending a thought to the inbox during conversation to avoid derailing flow | Agent notices something worth capturing that isn't part of the current discussion | One-line entry in `inbox.md`. No routing, no thread updates, no cross-references. Triage happens later. |
-| **Whiteboard routing** | Moving one or more whiteboard entries into a thread, artifact, inbox, or discard path | Adjudicator instruction (`Route #3...`, `Capture #1-#4...`, etc.) | Permanent destination updated; whiteboard remains temporary |
+| **Whiteboard routing** | Moving one or more whiteboard entries into a thread, artifact, inbox, or discard path | PI instruction (`Route #3...`, `Capture #1-#4...`, etc.) | Permanent destination updated; whiteboard remains temporary |
 
 ## Rendered Outputs
 
@@ -40,12 +40,11 @@ Operating language for the Memex system. Each term has a defined meaning, scope,
 
 | Term | What it does | Who | Key constraint |
 |------|-------------|-----|---------------|
-| **Adjudicator** | Human who holds mission, taste, architecture, and final meaning across the system; resolves tradeoffs the models cannot legitimately resolve on their own | Human | Must remain substantively engaged — not a rubber stamp |
-| **Systems Adjudicator** | Stronger form of adjudicator for multi-model or multi-process systems. Integrates outputs across agents, enforcers, crawlers, and domain workflows to keep the whole system aligned with its purpose | Human | Requires multi-layer understanding of both local work and global architecture |
+| **PI (Principal Investigator)** | Human who holds mission, taste, architecture, and final meaning across the system; resolves tradeoffs the models cannot legitimately resolve on their own | Human | Must remain substantively engaged — not a rubber stamp |
 | **Chat agent** | Reads/writes the Memex in-session, talks to the human | Primary model (e.g., Claude Opus) | Follows the constitution |
 | **Enforcer** | Audits for staleness, contradiction, bloat; produces documentation renders | Different model (e.g., Sonnet, Gemini) | Must NOT be the same model as the chat agent |
 
-**Terminology note:** `operator` is still usable as a generic human-in-the-loop term, but `adjudicator` is more precise when the human is not merely operating the interface but actively judging mission, architectural coherence, and tradeoffs.
+**Terminology note:** `operator` is still usable as a generic human-in-the-loop term, but `PI` is more precise when the human is not merely operating the interface but actively directing research, judging architectural coherence, and resolving tradeoffs. Earlier drafts used "adjudicator" and "systems adjudicator" — these have been retired in favor of PI, which better captures the research-director relationship.
 
 ### Role Stack
 
@@ -53,13 +52,13 @@ The complete set of roles in a fully operational system, from human to backgroun
 
 | Role | Type | Function | Key property |
 |------|------|----------|-------------|
-| **Systems Adjudicator** | Human | Holds mission, architectural coherence, and final judgment. Integrates outputs across all agents and processes. | Irreducible — models generate, critique, and compress, but the human is the final integrator of meaning |
+| **PI** | Human | Holds mission, architectural coherence, and final judgment. Integrates outputs across all agents and processes. | Irreducible — models generate, critique, and compress, but the human is the final integrator of meaning |
 | **Chat Agent** | Model (primary) | Talks to the human. Reads/writes the Memex in-session. | Follows the constitution. Session-scoped. |
 | **Enforcer** | Model (different) | Audits the Memex (read-only). Produces reports and documentation renders. | Must be a different model than the chat agent. Does not edit. |
 | **Crawler** | Model (any, cheap) | Scheduled background maintenance: compression budgets, lifecycle enforcement, stale thread detection, missing backlinks. | Deterministic, rule-following. Produces candidate changes for human review. |
 | **Spider** | Model (any) | Stochastic background discovery: missed cross-references, unexpected connections, candidate concept bridges. | Exploratory, suggestion-oriented, merge-gated. Proposes, never silently edits. |
 
-The adjudicator is not a "human in the loop" checkbox. The adjudicator is the reason the loop exists. Models are interchangeable operators; the adjudicator is the constant.
+The PI is not a "human in the loop" checkbox. The PI is the reason the loop exists. Models are interchangeable operators; the PI is the constant.
 
 ## Operating Levels
 
@@ -107,7 +106,7 @@ Courtroom-derived directives for real-time control of conversational and coding 
 | **Reference note** | Cognitive aid consulted situationally. Lives in `reference-notes/`. "Keep this in mind." |
 | **Friction log** | Append-only record of conversational snags. Data, not a to-do list. Feeds enforcer review. |
 | **Cross-reference** | Annotated link between threads explaining *why* the connection exists. The graph's edges. |
-| **Whiteboard session** | One bounded period of temporary multi-operator work on a subproblem. Usually opened explicitly by the adjudicator and closed after routing. |
+| **Whiteboard session** | One bounded period of temporary multi-operator work on a subproblem. Usually opened explicitly by the PI and closed after routing. |
 | **Summary** | 2–4 sentence section in every thread. Written at documentation-entry quality. Directly extractable by the render pipeline. |
 | **Graph connectivity** | Invariant: every operation preserves all cross-references. Nothing is orphaned. |
 | **3-hop constraint** | Any topic should be reachable within 3 associative hops. If not, add a lightweight thread. (Watts-Strogatz navigability.) |
