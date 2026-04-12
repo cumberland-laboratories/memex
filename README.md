@@ -16,7 +16,11 @@ fine-tuning, proprietary infrastructure, or large context windows.
 
 ## What this means for you
 
-Clone this repo.  Launch an agentic coding tool (Claude Code, Codex CLI, or Gemini CLI) from the repo root and start working as you would for any research project.
+**This repo is a working example.** It contains a populated Memex with a fictional PI ("Ren"), an illustrative project (`tinyagent`), real threads, real cross-references, and real enforcer reports. Browse it on GitHub to see how the pieces fit together. When you're ready to build your own, clear the content and start fresh — the architecture and machinery carry over.
+
+Here's what using your own Memex looks like:
+
+Launch an agentic coding tool (Claude Code, Codex CLI, or Gemini CLI) from the repo root and start working as you would for any research project.
 
 If the conversation is sufficient, Claude Code will save a thread for you automatically.  If you hit a point that is important to you, you can also say "let's make a note of this", or "let's record this please".  
 
@@ -140,12 +144,14 @@ Is this airtight? No. The enforcer can miss things. The lint script only catches
 
 ## Getting started
 
+**To browse**: read this repo on GitHub. Start with `memex/active-threads/context-budget-economics.md` and follow the cross-references.
+
+**To build your own**: clone the repo, delete the example content (`memex/active-threads/*`, `memex/artifacts/*`, `memex/threads/*`, `tinyagent/`), reset `identity.md` and `mission.md` to your own, and start working. The `.memex/` machinery and constitutions carry over unchanged.
+
 ```bash
 git clone https://github.com/cumberland-laboratories/memex.git
 cd memex
 ```
-
-Or just download the files. The Memex is constructed with markdown, git, adversarial models, and governance rules.
 
 ---
 
