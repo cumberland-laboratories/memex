@@ -1,0 +1,65 @@
+{
+  "date": "2026-04-12",
+  "model": "v2.1-subway",
+  "verdict": "FAIR",
+  "overall": 70,
+  "nodes": 11,
+  "edges": 19,
+  "avg_degree": 2.4,
+  "components": 1,
+  "clusters": 3,
+  "cluster_summary": [
+    {
+      "id": 0,
+      "size": 4,
+      "members": [
+        "Context Budget Economics",
+        "History Compaction Strategies",
+        "Tool Grain Size",
+        "Tool Schema Ergonomics"
+      ]
+    },
+    {
+      "id": 1,
+      "size": 4,
+      "members": [
+        "Error Recovery as Design",
+        "Prompt Caching Tradeoffs",
+        "Session Continuity Without Memory",
+        "Streaming vs Batched Output"
+      ]
+    },
+    {
+      "id": 2,
+      "size": 3,
+      "members": [
+        "Agentic Loop Failure Modes",
+        "Ask vs Act Thresholds",
+        "Subprocess Sandboxing Notes"
+      ]
+    }
+  ],
+  "bridges": 5,
+  "orphans": [],
+  "intra_cluster_orphans": [
+    "Session Continuity Without Memory"
+  ],
+  "intra_hop_violations": 0,
+  "cross_hop_violations": 7,
+  "redundancy_ratio": 0.23,
+  "redundant_edges": 3,
+  "total_undirected_edges": 13,
+  "peripherals": 9,
+  "peripherals_stranded": [],
+  "hubs": [
+    "Agentic Loop Failure Modes",
+    "Context Budget Economics"
+  ],
+  "scores": {
+    "navigability": 96,
+    "resilience": 0,
+    "connectivity": 80,
+    "efficiency": 76,
+    "legibility": 100
+  }
+}

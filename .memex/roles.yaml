@@ -1,0 +1,31 @@
+# Memex CLI role configuration
+# Each role defines who can do what and how their session is tailored.
+
+roles:
+  pi:
+    description: Principal investigator — full access, mission authority, architectural coherence, shop-floor audit
+    model: null
+    permissions: [all]
+    provenance: -ren
+    session-open-emphasis: [roadmap, inbox, patterns, sprint]
+
+  agent:
+    description: Primary chat agent — reads and writes the Memex in-session
+    model: claude-opus-4-6
+    permissions: [read, write]
+    provenance: -claude
+    session-open-emphasis: [inbox, active-threads, next-up, patterns]
+
+  enforcer:
+    description: Auditor — read-only, produces reports
+    model: codex
+    permissions: [read]
+    provenance: -codex
+    session-open-emphasis: [audit-tracker, graph-health, staleness]
+
+  crawler:
+    description: Automated maintenance operator
+    model: claude-sonnet-4-6
+    permissions: [read, write-maintenance]
+    provenance: -crawler
+    session-open-emphasis: [graph-health, orphans, bridges]
