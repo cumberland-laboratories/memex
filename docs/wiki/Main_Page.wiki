@@ -1,0 +1,41 @@
+{{DISPLAYTITLE:Memex - Personal Knowledge System}}
+'''Last rendered:''' 2026-04-12 | '''Threads:''' 11 | '''Categories:''' 6
+
+This wiki is auto-generated from the Memex thread graph. The Memex is the source of truth; this page is a rendered summary for human navigation.
+
+'''To regenerate:''' <code>python .memex/scripts/generate_wiki.py && python .memex/scripts/generate_markdown.py</code>
+
+'''Memex CLI''' (<code>python .memex/scripts/memex.py</code>):
+* <code>memex status</code> — graph health, inbox count, patterns due, active threads (<code>--full</code> for complete state dump)
+* <code>memex search <query></code> — full-text search across threads, artifacts, designs, reports
+* <code>memex read <type> <name></code> — render thread/artifact/design/report (<code>--section</code> for specific sections)
+* Add <code>--format json</code> for structured agent output, <code>--role <name></code> for role-aware views
+
+== About the Operator ==
+
+=== Background ===
+Former distributed-systems engineer at mid-size infra companies. No CS degree — learned through systems programming, breaking things, and reading RFCs at 2 AM. Left to build tools I wished I had. Now solo dev building agentic tools full-time.
+
+=== Intellectual Disposition ===
+First-principles thinker but skeptical of "from scratch" rewrites — constraints produce better design than blank canvases. Reads more papers than blog posts. Has opinions about context windows the way some people have opinions about type systems. Believes most AI tooling fails because it ignores the human in the loop, not because the models are weak.
+
+=== Working Style ===
+Iterates in tight loops: prototype, break, compress, ship. Prefers small composable tools over frameworks. Uses the Memex as a forcing function for clear thinking, not just note-taking. Commits often, squashes later. Will abandon a branch mid-afternoon if the abstraction doesn't hold. Tests by breaking, not by covering.
+
+=== Interests ===
+* Token economics of LLM inference — what actually costs what and why
+* Adversarial testing and red-teaming agentic systems
+* Ergonomics of human-AI collaboration (the seams matter more than the AI)
+* Mechanical keyboards (current daily: Corne with Boba U4Ts)
+* Long-distance trail running — thinking time with no screens
+
+
+== Categories ==
+
+
+
+
+''This wiki was generated mechanically from the Memex thread graph. Summaries are extracted from source threads; no thread prose is synthesized during rendering.''
+
+[[Category:Memex]]
+[[Category:Auto-generated]]
