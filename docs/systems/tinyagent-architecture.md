@@ -81,3 +81,7 @@ This is a design artifact. The architecture is complete and the modules run, but
 - No prompt caching, no subprocess sandboxing, no command allowlists
 
 These stubs are documented as TODOs in the source and tracked in Memex threads.
+
+## Module Charters
+
+For detailed ownership boundaries, inputs/outputs, and "what to know before changing" guidance for each module, see -> [Module Charters](../../memex/artifacts/2026-04-12-tinyagent-module-charters.md).
