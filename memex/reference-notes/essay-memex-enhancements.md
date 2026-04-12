@@ -49,8 +49,8 @@ Near-term improvements to close the gap between the Memex's constitutional claim
 
 ## Connections
 
-→ [knowledge-systems-comparison.md](knowledge-systems-comparison.md) — scaling analysis that identified graph maintenance as the failure point; Codex report assessment
-→ [agent-performance-latency.md](agent-performance-latency.md) — hostile critique #8 (latency as externalized labor) tracked here
+→ [knowledge-systems-comparison.md](essay-knowledge-systems-comparison.md) — scaling analysis that identified graph maintenance as the failure point; Codex report assessment
+→ [agent-performance-latency.md](essay-agent-performance-latency.md) — hostile critique #8 (latency as externalized labor) tracked here
 → [2026-03-18-chatgpt-hostile-review.md](../artifacts/2026-03-18-chatgpt-hostile-review.md) — source of the nine attack lines this plan addresses
 → [2026-03-18-chatgpt-memex-review.md](../artifacts/2026-03-18-chatgpt-memex-review.md) — balanced review with the three highest-value next moves
 → [2026-03-18-power-tool-framing.md](../artifacts/2026-03-18-power-tool-framing.md) — audience and vulnerability framing

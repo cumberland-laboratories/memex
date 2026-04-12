@@ -146,12 +146,15 @@ Is this airtight? No. The enforcer can miss things. The lint script only catches
 
 **To browse**: read this repo on GitHub. Start with `memex/active-threads/context-budget-economics.md` and follow the cross-references.
 
-**To build your own**: clone the repo, delete the example content (`memex/active-threads/*`, `memex/artifacts/*`, `memex/threads/*`, `tinyagent/`), reset `identity.md` and `mission.md` to your own, and start working. The `.memex/` machinery and constitutions carry over unchanged.
+**To build your own**: clone the repo, then use the spawn script to create a fresh Memex with just the portable skeleton — no example content to clean up:
 
 ```bash
 git clone https://github.com/cumberland-laboratories/memex.git
 cd memex
+python .memex/scripts/spawn.py /path/to/your-new-project
 ```
+
+Or do it manually: delete the example content (`memex/active-threads/*`, `memex/artifacts/*`, `memex/threads/*`, `tinyagent/`), reset `identity.md` and `mission.md` to your own, and start working. The `.memex/` machinery and constitutions carry over unchanged.
 
 ---
 

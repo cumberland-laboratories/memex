@@ -92,6 +92,6 @@ The test: *this document makes the agent better at its job, but it's not a step-
 
 ## Connections
 
-→ [Four-Layer Documentation](../../docs/systems/four-layer-documentation.md) — the taxonomy this policy operationalizes
-→ [Thread Lifecycle](../../docs/systems/thread-lifecycle.md) — promotion, demotion, splitting rules
-→ [Constitution & Governance](../../docs/systems/constitution-and-governance.md) — the authority this policy serves
+→ [Thread Lifecycle Procedure](../procedures/thread-lifecycle.md) — promotion, demotion, splitting rules
+→ [Constitution (core)](../../constitution-core.md) — the authority this policy serves
+→ [Constitution (domain)](../../constitution.md) — instance-specific conventions
