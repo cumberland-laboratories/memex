@@ -33,5 +33,5 @@ The boundary is intentional: tinyagent handles one task in one session. Everythi
 **Charter lookup is mandatory.** Read the relevant charters before modifying any code. Charters document what every function reads, writes, and depends on — including tripwires and patterns invisible in the source.
 
 - Procedure: → [Charter Lookup](procedures/charter-lookup.md)
-- tinyagent charters: → [Module Charters](artifacts/2026-04-12-tinyagent-module-charters.md)
+- tinyagent charters: [Agent Loop](artifacts/2026-04-27-charter-agent-loop.md) | [Context Budget](artifacts/2026-04-27-charter-context-budget.md) | [Infrastructure](artifacts/2026-04-27-charter-infrastructure.md) | [Tools](artifacts/2026-04-27-charter-tools.md)
 - Architecture overview: → [tinyagent Architecture](../docs/systems/tinyagent-architecture.md)

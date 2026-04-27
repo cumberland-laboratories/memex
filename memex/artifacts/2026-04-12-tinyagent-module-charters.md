@@ -5,9 +5,18 @@ tags: [tinyagent, charters, architecture, onboarding, parachute-in]
 source-thread: context-budget-economics
 source: claude
 summary: Module-level charters for tinyagent — ownership, responsibilities, boundaries, and entry points for each module. Designed as a "parachute in" document for someone encountering the codebase cold.
+superseded-by: 2026-04-27-charter-*.md (function-level charters with notation)
 ---
 
-# tinyagent Module Charters
+# tinyagent Module Charters (Superseded)
+
+**This artifact is superseded** by function-level charters with full notation (line anchors, access patterns, tripwires, cross-references):
+- → [Agent Loop Charter](2026-04-27-charter-agent-loop.md)
+- → [Context Budget Charter](2026-04-27-charter-context-budget.md)
+- → [Infrastructure Charter](2026-04-27-charter-infrastructure.md)
+- → [Tools Charter](2026-04-27-charter-tools.md)
+
+This file is preserved as a historical example of the module-level five-question format. For active development, use the function-level charters above.
 
 *"Parachute in" reference: read a module's charter before reading its code.*
 

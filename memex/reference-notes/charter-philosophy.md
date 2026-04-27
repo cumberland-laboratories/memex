@@ -152,6 +152,7 @@ Charters are disproportionately effective for LLM-assisted development, for four
 ## Connections
 
 -> [Codebase Charter Pattern](codebase-charter-pattern.md) — the practical recipe: module-level five questions, when to write, where they live, anti-patterns
--> [tinyagent Module Charters](../artifacts/2026-04-12-tinyagent-module-charters.md) — worked example of module-level charters on a small codebase
+-> tinyagent function-level charters: [Agent Loop](../artifacts/2026-04-27-charter-agent-loop.md) | [Context Budget](../artifacts/2026-04-27-charter-context-budget.md) | [Infrastructure](../artifacts/2026-04-27-charter-infrastructure.md) | [Tools](../artifacts/2026-04-27-charter-tools.md) — worked example of function-level notation on a small codebase
+-> [tinyagent Module-Level Charters](../artifacts/2026-04-12-tinyagent-module-charters.md) — historical example of module-level five-question format (superseded)
 -> [Error Recovery as Design](../active-threads/error-recovery-as-design.md) — the "failures are information" principle connects to negative space: don't let an LLM "fix" intentional error exposure
 -> Source essay: "Constitutional Architecture for AI-Assisted Software Development" (Cumberland Laboratories, 2026)
