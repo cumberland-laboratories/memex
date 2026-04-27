@@ -8,15 +8,17 @@ Find the code you're about to change. Read the charter(s) listed. **Always** rea
 
 ### tinyagent
 
+**Always read first:** [Cross-Cutting](../artifacts/2026-04-27-charter-cross-cutting.md) — patterns spanning multiple modules, TRIPWIRE labels, stub inventory.
+
 | If you're changing... | Read these charters |
 |---|---|
-| `tinyagent/agent.py` | [Agent Loop](../artifacts/2026-04-27-charter-agent-loop.md) |
-| `tinyagent/context.py` | [Context Budget](../artifacts/2026-04-27-charter-context-budget.md) |
+| `tinyagent/agent.py` | [Agent Loop](../artifacts/2026-04-27-charter-agent-loop.md) + [Cross-Cutting](../artifacts/2026-04-27-charter-cross-cutting.md) |
+| `tinyagent/context.py` | [Context Budget](../artifacts/2026-04-27-charter-context-budget.md) + [Cross-Cutting](../artifacts/2026-04-27-charter-cross-cutting.md) |
 | `tinyagent/client.py` | [Infrastructure](../artifacts/2026-04-27-charter-infrastructure.md) |
-| `tinyagent/session.py` | [Infrastructure](../artifacts/2026-04-27-charter-infrastructure.md) |
+| `tinyagent/session.py` | [Infrastructure](../artifacts/2026-04-27-charter-infrastructure.md) + [Cross-Cutting](../artifacts/2026-04-27-charter-cross-cutting.md) |
 | `tinyagent/__main__.py` | [Infrastructure](../artifacts/2026-04-27-charter-infrastructure.md) |
-| `tinyagent/tools/__init__.py` | [Tools](../artifacts/2026-04-27-charter-tools.md) |
-| `tinyagent/tools/*.py` (any tool) | [Tools](../artifacts/2026-04-27-charter-tools.md) |
+| `tinyagent/tools/__init__.py` | [Tools](../artifacts/2026-04-27-charter-tools.md) + [Cross-Cutting](../artifacts/2026-04-27-charter-cross-cutting.md) |
+| `tinyagent/tools/*.py` (any tool) | [Tools](../artifacts/2026-04-27-charter-tools.md) + [Cross-Cutting](../artifacts/2026-04-27-charter-cross-cutting.md) |
 
 *For a larger project, this table would have 15-20 rows mapping code paths to specific charter files. The dispatch table tells the agent exactly which charters to load instead of guessing.*
 

@@ -107,6 +107,23 @@ This format works at the *architecture* level: deciding where to put new code, u
 
 A large project may use both: module-level charters for orientation, function-level charters for the modules where code changes happen. The module-level format is not a replacement for the function-level format — it's a different tool for a different job.
 
+## The Cross-Cutting Charter
+
+The original paper identifies the cross-cutting charter as "the most critical document" in the charter set. It's the one that doesn't map to a single code module — it maps to *patterns that span modules*.
+
+Every codebase has behaviors that emerge from the interaction of multiple modules: a data flow that traverses four files, an implicit contract between a prompt and the code that parses its output, an invariant that must be preserved across every exit path. These patterns are invisible in any individual module's charter. They're the things that break during refactors — not because any single module was changed incorrectly, but because the *relationship* between modules was violated.
+
+The cross-cutting charter documents these patterns with `TRIPWIRE` labels: rendering dualities, state flow chains, implicit termination signals, scattered stubs that look independent but are connected by design threads. In graph terms, it's a hub node — it connects tightly-clustered domain charters and dramatically improves navigability. The paper measured this: adding a cross-cutting charter reduced unreachable node pairs from 87 to 140 reachable pairs in the charter network.
+
+**What goes in the cross-cutting charter:**
+- Multi-module data flows where changing one link breaks the chain
+- Implicit contracts not encoded in any function signature
+- Invariants that must be preserved across all code paths (e.g., "session must be saved on every exit")
+- Patterns where two parallel implementations must stay synchronized (rendering dualities, cache/DB consistency)
+- Stub inventories — scattered stubs that are connected by design decisions not yet finalized
+
+**When to read it:** Always. The charter lookup procedure says "always read cross-cutting if one exists." It's the charter that catches the changes other charters can't.
+
 ## The Three-Layer Documentation Architecture
 
 In a mature codebase, charters are one layer of a three-layer structure:
@@ -152,7 +169,7 @@ Charters are disproportionately effective for LLM-assisted development, for four
 ## Connections
 
 -> [Codebase Charter Pattern](codebase-charter-pattern.md) — the practical recipe: module-level five questions, when to write, where they live, anti-patterns
--> tinyagent function-level charters: [Agent Loop](../artifacts/2026-04-27-charter-agent-loop.md) | [Context Budget](../artifacts/2026-04-27-charter-context-budget.md) | [Infrastructure](../artifacts/2026-04-27-charter-infrastructure.md) | [Tools](../artifacts/2026-04-27-charter-tools.md) — worked example of function-level notation on a small codebase
+-> tinyagent function-level charters: [Cross-Cutting](../artifacts/2026-04-27-charter-cross-cutting.md) | [Agent Loop](../artifacts/2026-04-27-charter-agent-loop.md) | [Context Budget](../artifacts/2026-04-27-charter-context-budget.md) | [Infrastructure](../artifacts/2026-04-27-charter-infrastructure.md) | [Tools](../artifacts/2026-04-27-charter-tools.md) — worked example of function-level notation on a small codebase
 -> [tinyagent Module-Level Charters](../artifacts/2026-04-12-tinyagent-module-charters.md) — historical example of module-level five-question format (superseded)
 -> [Error Recovery as Design](../active-threads/error-recovery-as-design.md) — the "failures are information" principle connects to negative space: don't let an LLM "fix" intentional error exposure
 -> Source essay: "Constitutional Architecture for AI-Assisted Software Development" (Cumberland Laboratories, 2026)
