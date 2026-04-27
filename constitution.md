@@ -18,16 +18,22 @@ The PI in this reference instance is a fictional persona ("Ren"). A real cloner 
 
 `operating-mode: user` — the default session level is content (using the Memex as infrastructure). Architectural discussions about the Memex itself use the `*m` prefix to switch to meta-level.
 
+## Charter Lookup Rule
+
+**Before modifying code**, consult the relevant charters. This is not optional. Charters are the ground-truth API reference — they document what every function reads, writes, and depends on, including patterns that cannot be inferred from the code alone (tripwires, rendering dualities, session state flows).
+
+Full procedure: → [Charter Lookup](memex/procedures/charter-lookup.md)
+Charter philosophy and formats: → [Why Charters](memex/reference-notes/charter-philosophy.md)
+
 ## Domain Conventions
 
 This reference instance deliberately omits the heavier conventions that a long-running production Memex might adopt:
 
-- No `friction.md` — the public repo is small and short-lived; friction logging has no audience here.
+- No `friction.md` ��� the public repo is small and short-lived; friction logging has no audience here.
 - No `whiteboard.md` — no multi-operator concurrent work happens in a reference instance.
 - No `audit-tracker.md` — enforcer reports live in `docs/reports/` and are read directly.
-- No project-specific procedures in `memex/procedures/` — a cloner adds these as their project grows.
 
-These are genuine, useful conventions in a working Memex. They are omitted here to keep the reference instance minimal and the core architecture legible.
+Project-specific procedures live in `memex/procedures/` and grow organically as the project needs them.
 
 ## Reference-Note Essays
 

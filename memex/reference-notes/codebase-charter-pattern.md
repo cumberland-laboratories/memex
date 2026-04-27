@@ -10,6 +10,8 @@ tags: [charters, onboarding, architecture, pattern, coding-projects]
 
 A charter is a "parachute in" document that lets someone — human or LLM — orient in a codebase without reading every file. Each module gets a short block answering the same five questions. The result is a map you read *before* the code, not a reference you check *after*.
 
+For the deeper argument — why charters exist, why boundaries matter more than descriptions, and how this connects to AI-assisted development — see -> [Why Charters](charter-philosophy.md).
+
 ## The Five Questions
 
 Every module charter answers:
