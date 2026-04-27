@@ -24,3 +24,8 @@ Append session changes here. Use as commit message source. Clear after each comm
 - Added cross-cutting charter (charter-cross-cutting.md): tool result flow TRIPWIRE, budget pressure from tool results, termination signal implicit contract, session save invariant, stub inventory linking to design threads. [#charters] [#cross-cutting] [#tinyagent] -claude
 - Added "The Cross-Cutting Charter" section to charter-philosophy.md: explains the cross-cutting charter as hub node in the charter graph, what goes in it, why the paper calls it "the most critical document." [#philosophy] [#cross-cutting] -claude
 - Updated dispatch table to list cross-cutting as "always read first" and added it to every code path that touches shared patterns. [#procedures] [#cross-cutting] -claude
+- Moved charters from `memex/artifacts/` to `memex/charters/` — charters are living documents that must be updated with code changes, not immutable artifacts. Dropped date prefixes. [#charters] [#structure] -ren
+- Created `memex/charters/README.md` — self-contained document merging charter philosophy + pattern + notation + anti-patterns + "how to implement in another repo." Point an LLM at this folder and it gets everything. [#charters] [#philosophy] [#onboarding] -claude
+- Converted `charter-philosophy.md` and `codebase-charter-pattern.md` reference notes to thin pointers to new location. [#reference-notes] [#charters] -claude
+- Updated all cross-references: constitution.md, mission.md, architecture doc, dispatch table, adding-a-tool procedure. Old artifact copies marked as moved/frozen. [#cross-references] [#charters] -claude
+- Added charters folder description to domain constitution conventions section. [#constitution] [#charters] -claude

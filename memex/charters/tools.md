@@ -7,8 +7,6 @@ source: claude
 summary: Function-level charter for tinyagent's tool system — registry, schema export, dispatch, and all four built-in tools with their boundary crossings and safety constraints.
 ---
 
-**This charter has moved to [`memex/charters/tools.md`](../charters/tools.md).** This artifact copy is frozen as of 2026-04-27. The living version is maintained in `memex/charters/`.
-
 # Tools — registry, schema export, dispatch, built-in tools
 
 Last verified: 2026-04-27
@@ -28,7 +26,7 @@ Registers a tool. Raises ValueError on duplicate name.
 #### get_schemas() [L22]
 Returns tool definitions in Anthropic API format: [{name, description, input_schema}].
 ← Agent._step(R) — called every iteration to pass schemas to Claude
-! Schema tax: each tool costs ~100-200 tokens of context on every turn. 4 tools ≈ 400-800 tokens per iteration. → [Tool Schema Ergonomics](../../memex/active-threads/tool-schema-ergonomics.md)
+! Schema tax: each tool costs ~100-200 tokens of context on every turn. 4 tools ≈ 400-800 tokens per iteration. → [Tool Schema Ergonomics](../active-threads/tool-schema-ergonomics.md)
 
 #### execute(name, args) [L27]
 Dispatches to handler by name. Raises KeyError on unknown tool.
@@ -44,7 +42,7 @@ Module-level singleton instance of _ToolRegistry. All tool modules import this.
 
 ### load_all_tools() [L39]
 Imports all built-in tool modules to trigger self-registration. Called at module load time [L43].
-! Adding a new tool requires adding its import here. This is the only place that needs to change besides the new tool file itself. → [Adding a Tool](../../memex/procedures/adding-a-tool.md)
+! Adding a new tool requires adding its import here. This is the only place that needs to change besides the new tool file itself. → [Adding a Tool](../procedures/adding-a-tool.md)
 ! Called at import time — not lazy. All tools are registered when tinyagent.tools is first imported.
 
 ---
@@ -60,7 +58,7 @@ Each tool crosses exactly one I/O boundary the model cannot reach on its own.
 | `run_command` | run_command.py | context → shell | Timeout (30s default) | No sandboxing — most dangerous tool |
 | `list_files` | list_files.py | disk → context | Truncates at 200 results | No recursion guard on deep trees |
 
-! All tools return strings. The model parses what it needs. Don't return structured data — it complicates the protocol for no gain. → [Tool Grain Size](../../memex/active-threads/tool-grain-size.md)
+! All tools return strings. The model parses what it needs. Don't return structured data — it complicates the protocol for no gain. → [Tool Grain Size](../active-threads/tool-grain-size.md)
 
 ---
 
@@ -76,7 +74,7 @@ File: tinyagent/tools/write_file.py
 Writes content to file. Creates parent directories. Refuses paths that resolve outside cwd.
 → Filesystem(W)
 ! cwd containment: target.relative_to(cwd) raises ValueError for paths outside working directory. This is the only write safety mechanism.
-! No backup, no diff, no confirmation. Overwrites silently. → [Ask vs Act Thresholds](../../memex/active-threads/ask-vs-act-thresholds.md) — this is the incident that prompted the ask-vs-act thread.
+! No backup, no diff, no confirmation. Overwrites silently. → [Ask vs Act Thresholds](../active-threads/ask-vs-act-thresholds.md) — this is the incident that prompted the ask-vs-act thread.
 
 ### handle_run_command(args) [L15]
 File: tinyagent/tools/run_command.py

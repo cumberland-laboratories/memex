@@ -23,7 +23,7 @@ The PI in this reference instance is a fictional persona ("Ren"). A real cloner 
 **Before modifying code**, consult the relevant charters. This is not optional. Charters are the ground-truth API reference — they document what every function reads, writes, and depends on, including patterns that cannot be inferred from the code alone (tripwires, rendering dualities, session state flows).
 
 Full procedure: → [Charter Lookup](memex/procedures/charter-lookup.md)
-Charter philosophy and formats: → [Why Charters](memex/reference-notes/charter-philosophy.md)
+Charter philosophy, notation, and formats: → [memex/charters/README.md](memex/charters/README.md)
 
 ## Domain Conventions
 
@@ -34,6 +34,8 @@ This reference instance deliberately omits the heavier conventions that a long-r
 - No `audit-tracker.md` — enforcer reports live in `docs/reports/` and are read directly.
 
 Project-specific procedures live in `memex/procedures/` and grow organically as the project needs them.
+
+**Charters** live in `memex/charters/`. This is a project-specific folder for coding projects — not part of the core Memex structure. The README.md in that folder is self-contained: point an LLM at `memex/charters/` and it gets the philosophy, the notation, and working examples.
 
 ## Reference-Note Essays
 
