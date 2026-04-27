@@ -8,17 +8,17 @@ Find the code you're about to change. Read the charter(s) listed. **Always** rea
 
 ### tinyagent
 
-**Always read first:** [Cross-Cutting](../artifacts/2026-04-27-charter-cross-cutting.md) — patterns spanning multiple modules, TRIPWIRE labels, stub inventory.
+**Always read first:** [Cross-Cutting](../charters/cross-cutting.md) — patterns spanning multiple modules, TRIPWIRE labels, stub inventory.
 
 | If you're changing... | Read these charters |
 |---|---|
-| `tinyagent/agent.py` | [Agent Loop](../artifacts/2026-04-27-charter-agent-loop.md) + [Cross-Cutting](../artifacts/2026-04-27-charter-cross-cutting.md) |
-| `tinyagent/context.py` | [Context Budget](../artifacts/2026-04-27-charter-context-budget.md) + [Cross-Cutting](../artifacts/2026-04-27-charter-cross-cutting.md) |
-| `tinyagent/client.py` | [Infrastructure](../artifacts/2026-04-27-charter-infrastructure.md) |
-| `tinyagent/session.py` | [Infrastructure](../artifacts/2026-04-27-charter-infrastructure.md) + [Cross-Cutting](../artifacts/2026-04-27-charter-cross-cutting.md) |
-| `tinyagent/__main__.py` | [Infrastructure](../artifacts/2026-04-27-charter-infrastructure.md) |
-| `tinyagent/tools/__init__.py` | [Tools](../artifacts/2026-04-27-charter-tools.md) + [Cross-Cutting](../artifacts/2026-04-27-charter-cross-cutting.md) |
-| `tinyagent/tools/*.py` (any tool) | [Tools](../artifacts/2026-04-27-charter-tools.md) + [Cross-Cutting](../artifacts/2026-04-27-charter-cross-cutting.md) |
+| `tinyagent/agent.py` | [Agent Loop](../charters/agent-loop.md) + [Cross-Cutting](../charters/cross-cutting.md) |
+| `tinyagent/context.py` | [Context Budget](../charters/context-budget.md) + [Cross-Cutting](../charters/cross-cutting.md) |
+| `tinyagent/client.py` | [Infrastructure](../charters/infrastructure.md) |
+| `tinyagent/session.py` | [Infrastructure](../charters/infrastructure.md) + [Cross-Cutting](../charters/cross-cutting.md) |
+| `tinyagent/__main__.py` | [Infrastructure](../charters/infrastructure.md) |
+| `tinyagent/tools/__init__.py` | [Tools](../charters/tools.md) + [Cross-Cutting](../charters/cross-cutting.md) |
+| `tinyagent/tools/*.py` (any tool) | [Tools](../charters/tools.md) + [Cross-Cutting](../charters/cross-cutting.md) |
 
 *For a larger project, this table would have 15-20 rows mapping code paths to specific charter files. The dispatch table tells the agent exactly which charters to load instead of guessing.*
 
@@ -55,4 +55,4 @@ If you changed a function's signature, access patterns, cross-references, or beh
 
 If you're working in a codebase with no charters and the codebase exceeds ~10K lines, or if you're about to do a significant refactor, consider creating charters *before* starting the work. Charters created before a refactor serve as navigation map, dependency graph, tripwire documentation, and invariant checklist.
 
-For charter format guidance: -> [Why Charters](../reference-notes/charter-philosophy.md) (philosophy and two granularity levels) and -> [Codebase Charter Pattern](../reference-notes/codebase-charter-pattern.md) (practical recipe).
+For charter format guidance: -> [memex/charters/README.md](../charters/README.md) (philosophy, notation, anti-patterns, and how to implement in another repo).

@@ -7,8 +7,6 @@ source: claude
 summary: Function-level charter for tinyagent's infrastructure — the API client, session persistence, and CLI wiring harness.
 ---
 
-**This charter has moved to [`memex/charters/infrastructure.md`](../charters/infrastructure.md).** This artifact copy is frozen as of 2026-04-27. The living version is maintained in `memex/charters/`.
-
 # Infrastructure — API client, session persistence, CLI entry point
 
 Last verified: 2026-04-27

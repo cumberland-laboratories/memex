@@ -7,8 +7,6 @@ source: claude
 summary: Cross-cutting charter for tinyagent — patterns, invariants, and tripwires that span multiple modules and must be preserved as a unit during any refactor.
 ---
 
-**This charter has moved to [`memex/charters/cross-cutting.md`](../charters/cross-cutting.md).** This artifact copy is frozen as of 2026-04-27. The living version is maintained in `memex/charters/`.
-
 # Cross-Cutting Concerns — patterns spanning multiple modules
 
 Last verified: 2026-04-27
@@ -36,8 +34,8 @@ ContextManager.add()             → adds as "user" message with Priority.RECENT
 - If registry.execute raises KeyError (unknown tool), the exception is caught and becomes an error string — the model sees "Error executing..." and can react
 - Tool results go to BOTH session (permanent record) AND context (ephemeral, subject to compaction). After compaction, the session has tool results the context has forgotten.
 
-→ see [Agent Loop Charter](2026-04-27-charter-agent-loop.md) _execute_tool_calls
-→ see [Tools Charter](2026-04-27-charter-tools.md) registry.execute
+→ see [Agent Loop Charter](agent-loop.md) _execute_tool_calls
+→ see [Tools Charter](tools.md) registry.execute
 
 ---
 
@@ -49,7 +47,7 @@ read_file can return up to 50,000 characters (~12,500 tokens). A single large fi
 
 **Files involved:** tools/read_file.py (MAX_CHARS = 50,000), context.py (add, compact), agent.py (_step)
 
-! No mid-turn budget recovery. If a tool result blows the budget, compaction happens but the agent has no signal that context was lost. It continues with degraded state. → [Context Budget Economics](../../memex/active-threads/context-budget-economics.md)
+! No mid-turn budget recovery. If a tool result blows the budget, compaction happens but the agent has no signal that context was lost. It continues with degraded state. → [Context Budget Economics](../active-threads/context-budget-economics.md)
 
 ---
 
@@ -64,8 +62,8 @@ The agentic loop has no explicit "stop" command. Termination is an implicit cont
 
 ! There is no "task complete" tool, no explicit done signal, no progress assessment. The model just... stops calling tools. This works surprisingly well in practice but is fragile to prompt changes.
 
-→ see [Agent Loop Charter](2026-04-27-charter-agent-loop.md) _step, SYSTEM_PROMPT
-→ see [Agentic Loop Failure Modes](../../memex/active-threads/agentic-loop-failure-modes.md)
+→ see [Agent Loop Charter](agent-loop.md) _step, SYSTEM_PROMPT
+→ see [Agentic Loop Failure Modes](../active-threads/agentic-loop-failure-modes.md)
 
 ---
 
@@ -88,10 +86,10 @@ Stubs scattered across modules, each tracked by a different Memex thread. Listed
 
 | Stub | Location | Tracked by |
 |------|----------|-----------|
-| Context compaction | context.py `_build_summary_stub` [L118] | → [Context Budget Economics](../../memex/active-threads/context-budget-economics.md) |
-| Token estimation | context.py `_estimate_tokens` [L112] | → [Context Budget Economics](../../memex/active-threads/context-budget-economics.md) |
-| Loop detection | agent.py `_detect_loop` [L119] | → [Agentic Loop Failure Modes](../../memex/active-threads/agentic-loop-failure-modes.md) |
-| Escalation handling | agent.py `_loop` [L60-65] | → [Ask vs Act Thresholds](../../memex/active-threads/ask-vs-act-thresholds.md) |
-| Subprocess sandboxing | tools/run_command.py [L1-6] | → [Tool Grain Size](../../memex/active-threads/tool-grain-size.md) |
+| Context compaction | context.py `_build_summary_stub` [L118] | → [Context Budget Economics](../active-threads/context-budget-economics.md) |
+| Token estimation | context.py `_estimate_tokens` [L112] | → [Context Budget Economics](../active-threads/context-budget-economics.md) |
+| Loop detection | agent.py `_detect_loop` [L119] | → [Agentic Loop Failure Modes](../active-threads/agentic-loop-failure-modes.md) |
+| Escalation handling | agent.py `_loop` [L60-65] | → [Ask vs Act Thresholds](../active-threads/ask-vs-act-thresholds.md) |
+| Subprocess sandboxing | tools/run_command.py [L1-6] | → [Tool Grain Size](../active-threads/tool-grain-size.md) |
 
 ! Do NOT replace a stub with a full implementation without reading the linked thread first. The stub is intentional — the design hasn't been decided yet.

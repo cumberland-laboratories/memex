@@ -84,12 +84,12 @@ These stubs are documented as TODOs in the source and tracked in Memex threads.
 
 ## Module Charters
 
-Function-level charters with line anchors, access patterns, tripwires, and cross-references:
+Function-level charters with line anchors, access patterns, tripwires, and cross-references live in -> [memex/charters/](../../memex/charters/) (README.md has the full philosophy and notation guide):
 
-- -> [Cross-Cutting](../../memex/artifacts/2026-04-27-charter-cross-cutting.md) — patterns spanning multiple modules, TRIPWIRE labels, stub inventory (**read first**)
-- -> [Agent Loop](../../memex/artifacts/2026-04-27-charter-agent-loop.md) — the agentic loop, iteration control, tool dispatch
-- -> [Context Budget](../../memex/artifacts/2026-04-27-charter-context-budget.md) — priority tiers, token tracking, compaction
-- -> [Infrastructure](../../memex/artifacts/2026-04-27-charter-infrastructure.md) — API client, session persistence, CLI
-- -> [Tools](../../memex/artifacts/2026-04-27-charter-tools.md) — registry, dispatch, built-in tools
+- -> [Cross-Cutting](../../memex/charters/cross-cutting.md) — patterns spanning multiple modules, TRIPWIRE labels, stub inventory (**read first**)
+- -> [Agent Loop](../../memex/charters/agent-loop.md) — the agentic loop, iteration control, tool dispatch
+- -> [Context Budget](../../memex/charters/context-budget.md) — priority tiers, token tracking, compaction
+- -> [Infrastructure](../../memex/charters/infrastructure.md) — API client, session persistence, CLI
+- -> [Tools](../../memex/charters/tools.md) — registry, dispatch, built-in tools
 
 Charter lookup procedure: -> [Charter Lookup](../../memex/procedures/charter-lookup.md)

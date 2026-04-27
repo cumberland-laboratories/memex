@@ -7,8 +7,6 @@ source: claude
 summary: Function-level charter for tinyagent's context budget manager — priority tiers, token tracking, compaction, and the snapshot API that feeds the agentic loop.
 ---
 
-**This charter has moved to [`memex/charters/context-budget.md`](../charters/context-budget.md).** This artifact copy is frozen as of 2026-04-27. The living version is maintained in `memex/charters/`.
-
 # Context Budget — priority tiers, token tracking, compaction, snapshot
 
 Last verified: 2026-04-27
@@ -30,7 +28,7 @@ Three tiers: PINNED (0), RECENT (1), HISTORICAL (2). IntEnum so tiers sort natur
 
 ## TrackedMessage (dataclass) [L30]
 Fields: role, content, priority, token_estimate (default 0), turn_index (default 0).
-! token_estimate uses chars/4 heuristic — see _estimate_tokens(). Production needs anthropic.count_tokens(). → [Context Budget Economics](../../memex/active-threads/context-budget-economics.md)
+! token_estimate uses chars/4 heuristic — see _estimate_tokens(). Production needs anthropic.count_tokens(). → [Context Budget Economics](../active-threads/context-budget-economics.md)
 
 ---
 
@@ -51,7 +49,7 @@ Appends a TrackedMessage. Auto-triggers compact() if total tokens exceed budget.
 Summarizes HISTORICAL messages to free budget. Reassigns priorities first, collects all HISTORICAL messages, replaces them with a summary stub, inserts summary after PINNED messages.
 ← add() (auto-triggered)
 → _reassign_priorities(), _build_summary_stub()
-! STUB — _build_summary_stub() returns a placeholder string, not an actual Claude-powered summary. A real implementation calls Claude to summarize, preserving key decisions, file paths, and user constraints. → [Context Budget Economics](../../memex/active-threads/context-budget-economics.md)
+! STUB — _build_summary_stub() returns a placeholder string, not an actual Claude-powered summary. A real implementation calls Claude to summarize, preserving key decisions, file paths, and user constraints. → [Context Budget Economics](../active-threads/context-budget-economics.md)
 ! Summary is inserted at position after all PINNED messages. If PINNED order matters, this preserves it.
 ! After compaction, the summary itself is marked HISTORICAL — meaning it can be re-compacted on the next cycle. This is intentional (summaries of summaries) but lossy.
 
@@ -76,9 +74,9 @@ Reclassifies non-PINNED messages: last RECENT_TURN_COUNT stay RECENT, everything
 
 ### _estimate_tokens(content) [L112]
 Static method. Returns len(str(content)) // 4.
-! chars/4 is crude — overestimates for code (short tokens), underestimates for natural language with long words. Production needs anthropic.count_tokens(). → [Context Budget Economics](../../memex/active-threads/context-budget-economics.md)
+! chars/4 is crude — overestimates for code (short tokens), underestimates for natural language with long words. Production needs anthropic.count_tokens(). → [Context Budget Economics](../active-threads/context-budget-economics.md)
 
 ### _build_summary_stub(messages) [L118]
 Static method. Placeholder: returns "[Compacted: N messages (role counts) summarized...]".
 ← compact()
-! This is the most important stub in the codebase. The quality of compaction determines whether the agent loses context or preserves it. Replacing this with a real Claude call is the single highest-impact improvement. → [Context Budget Economics](../../memex/active-threads/context-budget-economics.md)
+! This is the most important stub in the codebase. The quality of compaction determines whether the agent loses context or preserves it. Replacing this with a real Claude call is the single highest-impact improvement. → [Context Budget Economics](../active-threads/context-budget-economics.md)
