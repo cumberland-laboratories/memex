@@ -86,6 +86,7 @@ These stubs are documented as TODOs in the source and tracked in Memex threads.
 
 Function-level charters with line anchors, access patterns, tripwires, and cross-references:
 
+- -> [Cross-Cutting](../../memex/artifacts/2026-04-27-charter-cross-cutting.md) — patterns spanning multiple modules, TRIPWIRE labels, stub inventory (**read first**)
 - -> [Agent Loop](../../memex/artifacts/2026-04-27-charter-agent-loop.md) — the agentic loop, iteration control, tool dispatch
 - -> [Context Budget](../../memex/artifacts/2026-04-27-charter-context-budget.md) — priority tiers, token tracking, compaction
 - -> [Infrastructure](../../memex/artifacts/2026-04-27-charter-infrastructure.md) — API client, session persistence, CLI

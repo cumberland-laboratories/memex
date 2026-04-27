@@ -21,3 +21,6 @@ Append session changes here. Use as commit message source. Clear after each comm
 - Marked original module-level charters (2026-04-12-tinyagent-module-charters.md) as superseded with links to new function-level charters. Artifact preserved as historical example. [#charters] [#artifacts] -claude
 - Updated dispatch table in charter-lookup.md with concrete per-file mapping to new charters. [#procedures] [#charters] -claude
 - Updated all cross-references: mission.md, tinyagent-architecture.md, adding-a-tool.md, charter-philosophy.md, codebase-charter-pattern.md — all point to new function-level charters. [#cross-references] [#charters] -claude
+- Added cross-cutting charter (charter-cross-cutting.md): tool result flow TRIPWIRE, budget pressure from tool results, termination signal implicit contract, session save invariant, stub inventory linking to design threads. [#charters] [#cross-cutting] [#tinyagent] -claude
+- Added "The Cross-Cutting Charter" section to charter-philosophy.md: explains the cross-cutting charter as hub node in the charter graph, what goes in it, why the paper calls it "the most critical document." [#philosophy] [#cross-cutting] -claude
+- Updated dispatch table to list cross-cutting as "always read first" and added it to every code path that touches shared patterns. [#procedures] [#cross-cutting] -claude
