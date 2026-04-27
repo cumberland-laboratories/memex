@@ -10,11 +10,15 @@ Find the code you're about to change. Read the charter(s) listed. **Always** rea
 
 | If you're changing... | Read these charters |
 |---|---|
-| Any tinyagent module | [tinyagent Module Charters](../artifacts/2026-04-12-tinyagent-module-charters.md) — all modules in one file (module-level format) |
+| `tinyagent/agent.py` | [Agent Loop](../artifacts/2026-04-27-charter-agent-loop.md) |
+| `tinyagent/context.py` | [Context Budget](../artifacts/2026-04-27-charter-context-budget.md) |
+| `tinyagent/client.py` | [Infrastructure](../artifacts/2026-04-27-charter-infrastructure.md) |
+| `tinyagent/session.py` | [Infrastructure](../artifacts/2026-04-27-charter-infrastructure.md) |
+| `tinyagent/__main__.py` | [Infrastructure](../artifacts/2026-04-27-charter-infrastructure.md) |
+| `tinyagent/tools/__init__.py` | [Tools](../artifacts/2026-04-27-charter-tools.md) |
+| `tinyagent/tools/*.py` (any tool) | [Tools](../artifacts/2026-04-27-charter-tools.md) |
 
-tinyagent is small enough that a single module-level charter file covers the entire codebase. Read the entry for the module you're modifying, plus the entries for any modules listed in its "Connections" section.
-
-*As projects grow and adopt function-level charters, add rows here mapping code paths to specific charter files. A large project will have 15-20 charter files; the dispatch table tells the agent which ones to load instead of guessing.*
+*For a larger project, this table would have 15-20 rows mapping code paths to specific charter files. The dispatch table tells the agent exactly which charters to load instead of guessing.*
 
 ## How to Read a Charter
 

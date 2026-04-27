@@ -48,5 +48,6 @@ For non-Memex projects, a `ARCHITECTURE.md` or `docs/charters.md` at the repo ro
 
 ## Connections
 
--> [tinyagent Module Charters](../artifacts/2026-04-12-tinyagent-module-charters.md) — worked example of this pattern applied to a real (small) codebase
+-> tinyagent function-level charters: [Agent Loop](../artifacts/2026-04-27-charter-agent-loop.md) | [Context Budget](../artifacts/2026-04-27-charter-context-budget.md) | [Infrastructure](../artifacts/2026-04-27-charter-infrastructure.md) | [Tools](../artifacts/2026-04-27-charter-tools.md)
+-> [tinyagent Module-Level Charters](../artifacts/2026-04-12-tinyagent-module-charters.md) — historical example of the five-question format (superseded)
 -> [Tool Grain Size](../active-threads/tool-grain-size.md) — the "one thing the model cannot do itself" heuristic applies to modules too: one thing the other modules cannot do themselves

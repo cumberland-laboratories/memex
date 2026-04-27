@@ -5,7 +5,7 @@
 ## Before you start
 
 1. Read the tool grain-size heuristic: → [Tool Grain Size](../active-threads/tool-grain-size.md)
-2. Read the module charter for tools: → [Module Charters](../artifacts/2026-04-12-tinyagent-module-charters.md) (Individual Tools section)
+2. Read the tools charter: → [Tools Charter](../artifacts/2026-04-27-charter-tools.md)
 3. Check the schema tax — each new tool costs ~100-200 tokens of context on every turn
 
 ## Steps
