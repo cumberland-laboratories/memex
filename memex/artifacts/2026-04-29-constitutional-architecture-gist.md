@@ -13,6 +13,8 @@ The core idea: **AI generates code faster than you can read it. You need a struc
 
 This guide synthesizes several lines of work into a practical, integrated approach. It's opinionated — it proposes a specific architecture — but it builds on real problems that others have identified and are actively working on.
 
+**Companion document:** The [Constitutional Architecture Starter Kit](https://gist.github.com/cumberland-laboratories/4ff65ab7ada163d603bf1cad8cf35e07) is the tactical counterpart to this guide — give it to an AI coding agent and it will build the full charter architecture for your codebase step by step.
+
 ## Prior work and the gap
 
 **The comprehension problem has a name.** Addy Osmani's "[Comprehension Debt](https://www.oreilly.com/radar/comprehension-debt-the-hidden-cost-of-ai-generated-code/)" (O'Reilly, 2025) articulates the core issue precisely: "the growing gap between how much code exists in your system and how much of it any human being genuinely understands." AI-generated code breaks the traditional feedback loop — surface correctness masks systemic ignorance. He prescribes vigilance. This guide proposes structure.
