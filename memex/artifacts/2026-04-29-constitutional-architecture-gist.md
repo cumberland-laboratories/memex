@@ -21,7 +21,7 @@ This guide synthesizes several lines of work into a practical, integrated approa
 
 **Constitutional governance is emerging.** Khaireh-Hoss et al.'s "[Constitutional Spec-Driven Development](https://arxiv.org/html/2602.02584v1)" (arXiv, 2026) uses a versioned constitution to constrain AI code generation *before* it happens — security requirements as machine-readable principles with CWE mappings and enforcement levels. It's governance with teeth, but it's focused on security constraints, not on giving the AI a map of the codebase it's about to modify.
 
-**Tiered documentation for AI agents is being explored.** Chowdhury et al.'s "[Codified Context](https://arxiv.org/html/2602.20478v1)" (arXiv, 2026) builds a three-tier knowledge infrastructure for AI agents: a constitution (~660 lines), 19 agent specifications (~9,300 lines), and a knowledge base (~16,250 lines) — totaling ~26,200 lines for a 108K-line codebase. Specifications are "written explicitly for machine consumption," with trigger tables routing tasks to specialist agents by file pattern. This is the closest neighbor to the approach described here.
+**Tiered documentation for AI agents is being explored.** Vasilopoulos's "[Codified Context](https://arxiv.org/html/2602.20478v1)" (arXiv, 2026) builds a three-tier knowledge infrastructure for AI agents: a constitution (~660 lines), 19 agent specifications (~9,300 lines), and a knowledge base (~16,250 lines) — totaling ~26,200 lines for a 108K-line codebase. Specifications are "written explicitly for machine consumption," with trigger tables routing tasks to specialist agents by file pattern. This is the closest neighbor to the approach described here.
 
 **Multi-model governance is on the horizon.** Bommena's "[LLM Council](https://medium.com/@srinib100/llm-council-a-new-architectural-governance-layer-for-the-ai-integrated-sdlc-5d879aab3d60)" (Medium, 2026) proposes cross-model governance at the organizational level — multiple models validating each other's work. The idea is sound. The missing piece is a shared, structured language precise enough to make that validation mechanical.
 
@@ -173,7 +173,7 @@ Everything else — the cross-cutting charter, the dispatch table, the three-lay
 **References:**
 - Osmani, A. (2025). "[Comprehension Debt: The Hidden Cost of AI-Generated Code](https://www.oreilly.com/radar/comprehension-debt-the-hidden-cost-of-ai-generated-code/)." O'Reilly Radar.
 - Khaireh-Hoss, V. et al. (2026). "[Constitutional Spec-Driven Development: Enforcing Security by Construction in AI-Assisted Code Generation](https://arxiv.org/html/2602.02584v1)." arXiv.
-- Chowdhury, R. et al. (2026). "[Codified Context: Infrastructure for AI Agents in a Complex Codebase](https://arxiv.org/html/2602.20478v1)." arXiv.
+- Vasilopoulos, A. (2026). "[Codified Context: Infrastructure for AI Agents in a Complex Codebase](https://arxiv.org/html/2602.20478v1)." arXiv.
 - Bommena, S. (2026). "[LLM Council: A New Architectural Governance Layer for the AI-Integrated SDLC](https://medium.com/@srinib100/llm-council-a-new-architectural-governance-layer-for-the-ai-integrated-sdlc-5d879aab3d60)." Medium.
 - Cumberland Laboratories (2026). "[Constitutional Architecture for AI-Assisted Software Development](https://cumberlandlaboratories.substack.com/p/constitutional-architecture-for-ai)." Substack.
 
