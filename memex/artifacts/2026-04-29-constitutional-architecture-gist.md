@@ -136,13 +136,13 @@ This is the enforcer role. It doesn't edit — it audits. The primary agent (wit
 
 ## The three-layer documentation architecture
 
-At scale, charters are one layer of three:
+At scale, the three levels of documentation each serve a distinct audience:
 
-1. **Charters** — per-module API references for the AI agent. Every function, its access patterns, tripwires, cross-references. Organized by code structure.
-2. **Designs** — flow-oriented documents for humans. Each one describes a business flow (checkout, authentication) from the user's perspective, referencing charters for technical detail.
-3. **Systems** — infrastructure documentation. How subsystems work (CI/CD, caching, deployment).
+1. **Inline** — code comments, docstrings, type annotations. Written by developers (or AI) for developers reading the code. Explains *what* and *why* at point of use.
+2. **Charters** — per-module structured notation for the AI agent. Every function, its access patterns, tripwires, cross-references. The map the LLM reads before modifying code. Written by AI, verified by the enforcer.
+3. **Human-readable** — design docs, architecture docs, flow narratives. Written for humans navigating the system at a business-flow level. Referencing charters for technical detail when needed.
 
-Charters are the ground truth. Designs are generated from charters as a more human-readable layer. Systems docs cover what charters don't reach.
+Charters are the ground truth. Inline comments explain local decisions. Human-readable docs provide the big picture. The three layers serve different audiences and don't replace each other.
 
 ## PI syllabus: what the human needs to know
 
