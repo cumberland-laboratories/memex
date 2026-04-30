@@ -144,17 +144,15 @@ At scale, the three levels of documentation each serve a distinct audience:
 
 Charters are the ground truth. Inline comments explain local decisions. Human-readable docs provide the big picture. The three layers serve different audiences and don't replace each other.
 
-## PI syllabus: what the human needs to know
+## The PI's learning path: let the system teach you
 
-The human in this system is the PI (principal investigator) — they hold mission, taste, and architectural coherence. The AI handles execution; the PI handles judgment. To make good judgment calls, the PI needs:
+The human in this system is the PI (principal investigator) — they hold mission, taste, and architectural coherence. The AI handles execution; the PI handles judgment. But judgment requires knowledge, and the PI can't know everything about every codebase in advance.
 
-**Week 1-2: The inference engine.** What actually happens in the context window. Attention patterns, positional encoding, why 200K tokens isn't 200K tokens of equal-quality attention. Read: Vaswani 2017 ("Attention Is All You Need"), Liu 2023 ("Lost in the Middle"). *Why*: every charter design decision — where to put information, how much to load, what to pin — is downstream of how the model processes context.
+This is where the constitutional architecture becomes self-teaching. The feedback loop — primary agent proposes, enforcer critiques, PI adjudicates — naturally surfaces the gaps in the PI's understanding. When the enforcer flags a stale access pattern and the primary agent disagrees, the PI needs to understand access patterns well enough to decide who's right. When the enforcer says a refactor violated a cross-cutting invariant, the PI needs to understand *that specific invariant* to adjudicate.
 
-**Week 3-4: Tools and feedback.** Tool protocol design, the schema tax, failure modes of agentic loops. Read: Anthropic tool use docs, Shinn 2023 ("Reflexion"), Yao 2023 ("ReAct"). *Why*: the PI needs to recognize when the agent is looping, drifting, or hallucinating tool calls — and know whether the fix is a prompt change, a tool change, or an architecture change.
+**The system generates its own syllabus.** Each disagreement between agent and enforcer is a learning opportunity targeted at exactly what the PI needs to know for *this* codebase. Over time, the PI builds domain expertise not by studying in the abstract, but by adjudicating real disputes grounded in real code — with the charters as the shared reference both sides are arguing from.
 
-**Week 5-6: Governance and knowledge architecture.** Context budget economics, adversarial review, commons governance. Read: Bush 1945 ("As We May Think"), Perez 2022 ("Red Teaming Language Models with Language Models"), Ostrom 1990 (*Governing the Commons* Ch. 1-3). *Why*: the PI designs the constitution, the charter format, and the enforcement process. These are governance decisions, not engineering decisions — and they require governance thinking.
-
-**Short path (8 days):** Vaswani + "Lost in the Middle" (2 days) → Anthropic tool docs (1 day) → ReAct + Reflexion (2 days) → Bush + Anthropic long-context tips (1 day) → Perez + Ostrom (2 days).
+This means the constitution can include a directive: "When the PI adjudicates a dispute, capture the reasoning as a reference note — what was the disagreement, what did the PI decide, and why." Those notes accumulate into a codebase-specific body of architectural knowledge that makes future adjudications faster and more consistent. The PI doesn't need to know everything on day one. They need to know how to learn from the system's own feedback.
 
 ## Getting started today
 
