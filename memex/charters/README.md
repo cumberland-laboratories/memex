@@ -46,7 +46,7 @@ That last point matters especially for LLMs. A model's training data creates pri
 Each charter covers a code module. Each *function* within that module gets its own block:
 
 ```
-### apply_grade(submission, raw_score, grader) [L45]
+### apply_grade(submission, raw_score, grader)
 File: core/utils/grading.py
 Creates Grade record with penalty-adjusted score.
 Models: Submission(R), Grade(W), Enrollment(RW)
@@ -60,13 +60,15 @@ Session W: last_graded_at
 
 | Symbol | Meaning | Why it exists |
 |--------|---------|---------------|
-| `[Lnnn]` | Line anchor | Verifiable location — if the function isn't near this line, the charter is stale |
+| `function_name()` | Function heading | Greppable identifier — the agent finds the current location via `grep -rn "def function_name"`. Survives code churn without maintenance. |
 | `(R)/(W)/(RW)` | Access pattern | Predicts side effects without reading code — `(R)` is safe to call, `(RW)` requires checking downstream effects |
 | `!` | Tripwire | Inverts the reader's assumption — contradiction spikes LLM attention at the point of maximum relevance |
 | `→` | Outbound cross-reference | "This function depends on..." — follow to understand downstream effects |
 | `←` | Inbound cross-reference | "This function is called by..." — follow to understand blast radius |
 | `Session R:` / `Session W:` | State access | Tracks untyped state (session dicts, Redis keys) that code analysis alone can't reveal |
 | `TRIPWIRE` | Section-level danger label | Flags architectural patterns that span multiple functions and must be preserved as a unit |
+
+**Why function names, not line numbers:** An earlier version of this notation used `[Lnnn]` line anchors. These break on every edit above them, creating combinatorial maintenance overhead. Function names are structurally stable — they survive code churn, they're self-verifying via grep, and they match how LLM agents actually navigate code. The staleness signal is cleaner too: a function name either resolves or visibly fails. A stale line number silently points to the wrong code.
 
 ## The Cross-Cutting Charter
 
@@ -122,7 +124,7 @@ Charters that fall out of sync with code are worse than no charters — a wrong 
 
 The update chain: **code change → charter update → design doc update**. If you change a function's signature, access patterns, or cross-references, the charter must be updated in the same operation. Not "later." The charter is part of the change, the same way a migration is part of a schema change.
 
-Line anchors `[Lnnn]` serve double duty: navigation aids and staleness detectors. When an LLM reads `apply_grade [L45]` and opens the file to find the function at line 300, it knows the charter is stale before it trusts anything else in the entry.
+Because charters use function names (not line numbers), routine code edits that don't change function signatures or behavior don't require charter updates. The maintenance obligation triggers on: renamed functions, changed access patterns, new cross-module dependencies, or new tripwire-worthy behavior. This keeps the overhead proportional to architectural change, not code churn.
 
 ## Why Charters Are Especially Effective for LLMs
 

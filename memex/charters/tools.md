@@ -16,32 +16,32 @@ Files covered: tinyagent/tools/__init__.py (43 lines), tinyagent/tools/read_file
 
 ## tools/__init__.py — The Registry
 
-### _ToolRegistry class [L10]
+### _ToolRegistry class
 
-#### register(name, description, parameters, handler) [L14]
+#### register(name, description, parameters, handler)
 Registers a tool. Raises ValueError on duplicate name.
 ← Each tool module at import time (self-registration)
-! Registration happens at module import, triggered by load_all_tools() [L39]. Adding a tool means: create file, call registry.register(), add import to load_all_tools().
+! Registration happens at module import, triggered by load_all_tools(). Adding a tool means: create file, call registry.register(), add import to load_all_tools().
 
-#### get_schemas() [L22]
+#### get_schemas()
 Returns tool definitions in Anthropic API format: [{name, description, input_schema}].
 ← Agent._step(R) — called every iteration to pass schemas to Claude
 ! Schema tax: each tool costs ~100-200 tokens of context on every turn. 4 tools ≈ 400-800 tokens per iteration. → [Tool Schema Ergonomics](../active-threads/tool-schema-ergonomics.md)
 
-#### execute(name, args) [L27]
+#### execute(name, args)
 Dispatches to handler by name. Raises KeyError on unknown tool.
 ← Agent._execute_tool_calls(R)
 ! The handler must return a string. All built-in tools do. If a handler raises, the caller (Agent._execute_tool_calls) catches and converts to error string.
 
-#### list_tools() [L32]
+#### list_tools()
 Returns list of registered tool names.
 ← (not currently called in main flow — available for introspection)
 
-### registry [L36]
+### registry
 Module-level singleton instance of _ToolRegistry. All tool modules import this.
 
-### load_all_tools() [L39]
-Imports all built-in tool modules to trigger self-registration. Called at module load time [L43].
+### load_all_tools()
+Imports all built-in tool modules to trigger self-registration. Called at module load time.
 ! Adding a new tool requires adding its import here. This is the only place that needs to change besides the new tool file itself. → [Adding a Tool](../procedures/adding-a-tool.md)
 ! Called at import time — not lazy. All tools are registered when tinyagent.tools is first imported.
 
@@ -62,21 +62,21 @@ Each tool crosses exactly one I/O boundary the model cannot reach on its own.
 
 ---
 
-### handle_read_file(args) [L10]
+### handle_read_file(args)
 File: tinyagent/tools/read_file.py
 Reads file contents. Truncates at MAX_CHARS (50,000 ≈ 12,500 tokens) with truncation notice.
 → Filesystem(R)
 ! Truncation is hard — no "read from offset" or "read lines N-M". A 100K file returns the first 50K chars and a notice. The model cannot request the rest.
 ! Uses errors="replace" for encoding — won't crash on binary files but output will be garbage.
 
-### handle_write_file(args) [L9]
+### handle_write_file(args)
 File: tinyagent/tools/write_file.py
 Writes content to file. Creates parent directories. Refuses paths that resolve outside cwd.
 → Filesystem(W)
 ! cwd containment: target.relative_to(cwd) raises ValueError for paths outside working directory. This is the only write safety mechanism.
 ! No backup, no diff, no confirmation. Overwrites silently. → [Ask vs Act Thresholds](../active-threads/ask-vs-act-thresholds.md) — this is the incident that prompted the ask-vs-act thread.
 
-### handle_run_command(args) [L15]
+### handle_run_command(args)
 File: tinyagent/tools/run_command.py
 Runs shell command via subprocess. Returns stdout + stderr + exit code.
 → Shell(RW — arbitrary system access)
@@ -84,7 +84,7 @@ Runs shell command via subprocess. Returns stdout + stderr + exit code.
 ! Timeout default 30s. TimeoutExpired returns error string, does not kill child processes (subprocess.run handles SIGTERM but not cleanup of grandchildren).
 ! stderr is included in output with [stderr] prefix — model sees both streams.
 
-### handle_list_files(args) [L11]
+### handle_list_files(args)
 File: tinyagent/tools/list_files.py
 Lists files matching glob pattern. Defaults to "**/*" in current directory. Truncates at MAX_RESULTS (200).
 → Filesystem(R)

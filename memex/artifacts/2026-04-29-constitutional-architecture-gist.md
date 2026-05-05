@@ -56,7 +56,7 @@ Most projects have two levels of documentation. Constitutional architecture adds
 
 The first two levels are familiar. The third is new, and it's the one that changes the game.
 
-**Charters are written for LLMs, by LLMs** (with human oversight). They use a notation optimized for how models process text — line anchors for verifiable location, access patterns for predicting side effects, and tripwire markers (`!`) that spike model attention through contradiction. A human *can* read them, but the primary consumer is the AI agent about to modify your code.
+**Charters are written for LLMs, by LLMs** (with human oversight). They use a notation optimized for how models process text — function names as greppable identifiers, access patterns for predicting side effects, and tripwire markers (`!`) that spike model attention through contradiction. A human *can* read them, but the primary consumer is the AI agent about to modify your code.
 
 **Charters are intentionally short.** A charter for a 2,000-line module is 50-100 lines of structured notation — roughly 2% of the code it describes. This matters because every token loaded into an LLM's context window displaces something else. Charters earn their token cost by compressing architectural knowledge into a fraction of the tokens that loading the source files would require. The LLM gets the map without paying for the territory.
 
@@ -69,7 +69,7 @@ The first two levels are familiar. The third is new, and it's the one that chang
 Each charter covers a code module. Each function gets a block:
 
 ```
-### apply_grade(submission, raw_score, grader) [L45]
+### apply_grade(submission, raw_score, grader)
 File: core/utils/grading.py
 Creates Grade record with penalty-adjusted score.
 Models: Submission(R), Grade(W), Enrollment(RW)
@@ -85,7 +85,7 @@ Session W: last_graded_at
 
 | Symbol | Meaning | Why |
 |--------|---------|-----|
-| `[Lnnn]` | Line anchor | Verifiable location — if the function isn't near this line, the charter is stale |
+| `function_name()` | Function heading | Greppable identifier — survives code churn, agent finds current location via grep |
 | `(R)/(W)/(RW)` | Access pattern | Predicts side effects without reading code |
 | `!` | Tripwire | Inverts the reader's assumption — spikes LLM attention through contradiction |
 | `→` / `←` | Cross-reference (outbound/inbound) | Shows what calls what — your blast radius |
