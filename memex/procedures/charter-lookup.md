@@ -28,7 +28,7 @@ Find the code you're about to change. Read the charter(s) listed. **Always** rea
 
 For each function you're about to change, find its entry and check:
 
-1. **Line anchor `[Lnnn]`** — verify it's roughly current. If the function has moved far from the documented line, the charter may be stale. Proceed with caution.
+1. **Function heading** — grep for the function name to confirm it still exists and find its current location.
 2. **Access patterns `(R)/(W)/(RW)`** — what models, session keys, caches, and external APIs does this function read and write? Your change must preserve or intentionally modify these.
 3. **Tripwires `!`** — non-obvious patterns that must be preserved. Read every tripwire before changing the function.
 4. **Cross-references `→` / `←`** — what calls this function (`←`) and what does it call (`→`)? These are your blast radius.
@@ -44,7 +44,7 @@ For each function you're about to change, find its entry and check:
 
 If you changed a function's signature, access patterns, cross-references, or behavior, **update the charter in the same operation**:
 
-- Update line anchors `[Lnnn]` if functions moved
+- Update function names if functions were renamed
 - Update access patterns if you added or removed model/session/cache reads or writes
 - Add or update tripwires if your change introduces non-obvious behavior
 - Add cross-references if your change creates new dependencies

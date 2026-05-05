@@ -70,9 +70,9 @@ The agentic loop has no explicit "stop" command. Termination is an implicit cont
 ## Session Save Invariant
 
 Agent._loop() [agent.py L54-67] saves the session on ALL three exit paths:
-1. `IterationOutcome.DONE` [L58] — normal completion
-2. `IterationOutcome.ESCALATE` [L64] — loop detected or escalation needed
-3. Max iterations reached [L66] — safety stop
+1. `IterationOutcome.DONE` — normal completion
+2. `IterationOutcome.ESCALATE` — loop detected or escalation needed
+3. Max iterations reached — safety stop
 
 **This must be preserved.** Any refactor that adds a new exit path from _loop() must include session.save(). An unsaved session means lost work — the user cannot resume.
 
@@ -86,10 +86,10 @@ Stubs scattered across modules, each tracked by a different Memex thread. Listed
 
 | Stub | Location | Tracked by |
 |------|----------|-----------|
-| Context compaction | context.py `_build_summary_stub` [L118] | → [Context Budget Economics](../active-threads/context-budget-economics.md) |
-| Token estimation | context.py `_estimate_tokens` [L112] | → [Context Budget Economics](../active-threads/context-budget-economics.md) |
-| Loop detection | agent.py `_detect_loop` [L119] | → [Agentic Loop Failure Modes](../active-threads/agentic-loop-failure-modes.md) |
-| Escalation handling | agent.py `_loop` [L60-65] | → [Ask vs Act Thresholds](../active-threads/ask-vs-act-thresholds.md) |
-| Subprocess sandboxing | tools/run_command.py [L1-6] | → [Tool Grain Size](../active-threads/tool-grain-size.md) |
+| Context compaction | context.py `_build_summary_stub` | → [Context Budget Economics](../active-threads/context-budget-economics.md) |
+| Token estimation | context.py `_estimate_tokens` | → [Context Budget Economics](../active-threads/context-budget-economics.md) |
+| Loop detection | agent.py `_detect_loop` | → [Agentic Loop Failure Modes](../active-threads/agentic-loop-failure-modes.md) |
+| Escalation handling | agent.py `_loop` | → [Ask vs Act Thresholds](../active-threads/ask-vs-act-thresholds.md) |
+| Subprocess sandboxing | tools/run_command.py | → [Tool Grain Size](../active-threads/tool-grain-size.md) |
 
 ! Do NOT replace a stub with a full implementation without reading the linked thread first. The stub is intentional — the design hasn't been decided yet.
