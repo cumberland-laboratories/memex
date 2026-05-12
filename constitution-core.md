@@ -88,9 +88,10 @@ Core intent: make the human feel like the conversation never ended.
 Threads move between three tiers based on activity. Full lifecycle: → [thread-lifecycle.md](.memex/procedures/thread-lifecycle.md)
 
 Key rules:
-- Active threads that exceed **60 lines** must be evaluated for splitting or compression.
+- Active threads that exceed **60 lines** must be evaluated for splitting.
 - Every thread must carry a `## Summary` (2–4 sentences, documentation-entry quality, directly extractable).
-- Demotion is compression, not deletion.
+- Demotion moves the thread intact — no compression, no stub creation. The thread is already out of the always-loaded set, so its length doesn't cost context tokens. Information loss is never justified by housekeeping.
+- Threads where the work is concluded can become artifacts (frozen historical records) instead of demoted threads.
 - Cross-references annotate *why* the link exists, not just that it does.
 
 ## Enforcer
