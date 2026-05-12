@@ -218,9 +218,9 @@ Threads move between three tiers based on activity. Full lifecycle: → [thread-
 New threads should follow the template: → [_TEMPLATE.md](memex/active-threads/_TEMPLATE.md)
 
 Key rules:
-- Active threads that exceed **60 lines** must be evaluated for splitting or compression.
+- Active threads that exceed **60 lines** must be evaluated for splitting.
 - Every thread must carry a `## Summary` (2–4 sentences).
-- Demotion is compression, not deletion.
+- Demotion moves threads intact — no compression, no information loss.
 - Cross-references annotate *why* the link exists, not just that it does.
 
 ## Conventions

@@ -34,11 +34,13 @@ tags: [list, of, keywords]
 
 ## Rotation (Promotion / Demotion)
 
-- **Demotion** (active → lightweight): When a thread cools off — stops being touched, loses Next Up items, falls out of conversation. Compress to a stub, move to `threads/`. Preserve cross-references.
+- **Demotion** (active → lightweight): When a thread cools off — stops being touched, loses Next Up items, falls out of conversation. Move to `threads/` intact — no compression, no stub creation. The thread is no longer always-loaded, so its length has no context cost. Preserve cross-references.
 - **Promotion** (lightweight → active): When a thread heats up — referenced repeatedly, becomes a focus. Expand and move to `active-threads/`.
 - **Artifact promotion**: When artifact content keeps surfacing, absorb a working synopsis (3–8 lines) into the referencing thread. The artifact remains as the full record. Don't pre-promote — let repeated use be the signal.
 
-**Invariant**: Graph connectivity is preserved through every transition. Nothing is deleted. Demotion is compression, not archiving.
+- **Archiving** (active/lightweight → artifact): When the work is concluded — the question was answered, the decision was made, the feature shipped. Move to `artifacts/` as a frozen historical record. The thread becomes a dated snapshot of what happened.
+
+**Invariant**: Graph connectivity is preserved through every transition. Nothing is deleted. Demotion preserves the full thread — no information is lost.
 
 ## Splitting
 
@@ -57,7 +59,7 @@ tags: [list, of, keywords]
 - **Semantic split** (above): distinct subtopics that can stand alone. The test: would a reader ever want one section without the other? If yes, split semantically.
 - **Volume split**: the thread is conceptually unified but too dense. Split into `thread-name-1.md` and `thread-name-2.md`. Both share the same Summary, category, and tags. Each cross-references the other as its continuation. No artificial seam required — just a page break.
 
-**Demotion vs. splitting**: Long because one section is cold → demote the cold section. Long because two hot topics → split semantically. Long because it's just dense → volume split.
+**Demotion vs. splitting**: Long because one section is cold → demote the cold section (move intact to `threads/`). Long because two hot topics → split semantically. Long because it's just dense → volume split.
 
 ## Cross-Referencing
 

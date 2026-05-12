@@ -110,7 +110,7 @@ Every thread carries annotated cross-references — not just "see also" but *why
 
 - **Summaries as gatekeepers.** Every thread has a 2-4 sentence summary. The LLM can triage a directory by reading summaries without loading full files.
 - **Frontmatter as metadata.** Tags, hit counts, last-touched dates — all in the first 6 lines. Enough to decide relevance without reading the body.
-- **Compression as demotion.** When a thread gets too long or too stale, it compresses into a lighter form or splits into parts. Information moves deeper, not out.
+- **Demotion without information loss.** When a thread cools off, it moves intact to `threads/` — no compression, no stub creation. It's already out of the always-loaded set, so its length costs nothing. Concluded threads can become artifacts (frozen historical records). Information moves deeper, never out.
 - **The inbox separates capture from organization.** New thoughts get dropped in one file. The LLM triages them at session open. No mid-conversation restructuring.
 - **The constitution is the boot sequence.** A new session reads one file, follows its procedure, loads the working set, and is oriented. Fixed cost, every time.
 

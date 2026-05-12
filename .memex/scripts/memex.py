@@ -1533,7 +1533,7 @@ Three tiers:
   {DIM}artifacts/{NC}        Deep records (dated, historical)
 
 Threads move between tiers based on activity. Hot threads promote.
-Cool threads demote. Nothing is deleted — demotion is compression.
+Cool threads demote. Nothing is deleted — demotion moves threads intact, no information is lost.
 
 {BOLD}Commands:{NC}
   memex read thread <name>    Read a thread
