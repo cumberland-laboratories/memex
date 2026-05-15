@@ -1,18 +1,12 @@
-# Memex Public Reference Instance — Domain Constitution
+# Memex — Domain Constitution
 
-Project-specific rules for this particular Memex. The core Memex governance lives in → [constitution-core.md](constitution-core.md).
+Project-specific rules for this Memex instance. The core governance lives in → [constitution-core.md](constitution-core.md).
 
 ## What This Repo Is
 
-This is the **public reference instance** of the Memex architecture, released under MIT license. It is not a starter kit or a template — it is a *populated, working Memex* that a reader can browse on GitHub and absorb the ideas from without cloning anything.
+This is the **Memex** — an MIT-licensed knowledge persistence layer for AI-assisted research and development. It makes the AI feel like it was there yesterday. The architecture is designed to be cloned, populated by a PI (principal investigator) working with an AI agent, and grown over time.
 
-The repo currently carries a small illustrative project (`tinyagent` — a minimal Claude-API coding assistant in pure Python) as the vehicle for demonstrating the Memex managing both project planning and code development. The code is secondary; the **structure, the threads, the cross-references, the reports, and the wiki** are the thing.
-
-A second layer of content — `memex/reference-notes/essay-*.md` — preserves earlier architectural thinking about the Memex itself. These are the "Memex architecture essays" and are distinct from the project threads.
-
-## PI
-
-The PI in this reference instance is a fictional persona ("Ren"). A real cloner replaces the content with their own mission, identity, and project.
+If this is a **fresh instance** (identity.md still has bracket placeholders, active-threads/ is empty), the agent follows the concierge bootstrap in → [memex-start-up.md](memex/memex-start-up.md).
 
 ## Operating Mode
 
@@ -27,20 +21,22 @@ Charter philosophy, notation, and formats: → [memex/charters/README.md](memex/
 
 ## Domain Conventions
 
-This reference instance deliberately omits the heavier conventions that a long-running production Memex might adopt:
+- **Charters** live in `memex/charters/`. Used for coding projects — the 2% intelligent map of the codebase. The README.md in that folder is self-contained: point an LLM at `memex/charters/` and it gets the philosophy, the notation, and the format.
+- **Reference-note essays** (`memex/reference-notes/essay-*.md`) are long-form essays on the Memex architecture itself. They are reference material, not active threads.
+- Project-specific procedures live in `memex/procedures/` and grow organically.
+- `memex/whiteboard.md` is an ephemeral working surface — enforcer findings, coordination notes. Cleared after use.
 
-- No `friction.md` ��� the public repo is small and short-lived; friction logging has no audience here.
-- No `whiteboard.md` — no multi-operator concurrent work happens in a reference instance.
-- No `audit-tracker.md` — enforcer reports live in `docs/reports/` and are read directly.
+## Concierge Principle
 
-Project-specific procedures live in `memex/procedures/` and grow organically as the project needs them.
+The agent's first job is to make the PI productive, not to demonstrate the architecture. On a fresh instance:
+1. Ask what the PI is working on
+2. Populate mission.md and identity.md from the conversation
+3. Build the roadmap together
+4. If the project has code, bootstrap charters (→ [memex-start-up.md](memex/memex-start-up.md))
+5. Let threads emerge from conversation — don't force structure before there's content
 
-**Charters** live in `memex/charters/`. This is a project-specific folder for coding projects — not part of the core Memex structure. The README.md in that folder is self-contained: point an LLM at `memex/charters/` and it gets the philosophy, the notation, and working examples.
+The Memex grows by being used, not by being configured.
 
-## Reference-Note Essays
+## Prior Example
 
-`memex/reference-notes/essay-*.md` are long-form essays on the Memex architecture — adversarial review methods, knowledge-systems comparison, agent performance, the role of git, etc. They are not part of the `tinyagent` project's working threads, and they should not be treated as active-threads even if they're long or substantive. They are **reference material about the Memex itself**, preserved as part of the repo's intellectual history.
-
-## API Keys and External Dependencies
-
-The `tinyagent` project requires a Claude API key to actually run. The public repo ships with a `.env.example`; instructions for wiring it up live in `docs/systems/tinyagent-architecture.md`. A reader browsing the repo on GitHub does not need any keys to read the Memex and understand the architecture — only to *run* `tinyagent`.
+A fully populated Memex instance (the "tinyagent" reference project) is preserved at git tag `v1-tinyagent-example`. Check it out to see what a mature Memex looks like with threads, charters, artifacts, wiki, and systems docs all working together. See → [reference-notes/example-tinyagent-instance.md](memex/reference-notes/example-tinyagent-instance.md).
