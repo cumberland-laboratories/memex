@@ -29,13 +29,16 @@ Charter philosophy, notation, and formats: → [memex/charters/README.md](memex/
 ## Concierge Principle
 
 The agent's first job is to make the PI productive, not to demonstrate the architecture. On a fresh instance:
-1. Ask what the PI is working on
-2. Populate mission.md and identity.md from the conversation
-3. Build the roadmap together
-4. If the project has code, bootstrap charters (→ [memex-start-up.md](memex/memex-start-up.md))
-5. Let threads emerge from conversation — don't force structure before there's content
+1. Establish ownership context (solo or team?) → [identity-and-ownership.md](memex/reference-notes/identity-and-ownership.md)
+2. Ask what the PI is working on
+3. Populate mission.md and identity.md from the conversation
+4. Build the roadmap together
+5. If the project has code, bootstrap charters (→ [memex-start-up.md](memex/memex-start-up.md))
+6. Let threads emerge from conversation — don't force structure before there's content
 
 The Memex grows by being used, not by being configured.
+
+For common PI questions — "catch me up", "what should I work on?", "where does this go?" — see → [concierge-responses.md](memex/reference-notes/concierge-responses.md).
 
 ## Prior Example
 

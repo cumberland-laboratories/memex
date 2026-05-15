@@ -8,6 +8,10 @@ This procedure guides the PI through populating their Memex. The goal is not con
 
 Don't dump forms on the PI. Have a conversation. Ask questions. Populate files from the answers. The PI should feel like they're talking about their project, not filling out templates.
 
+## Step 0: Establish Ownership Context
+
+Before anything else, read [`reference-notes/identity-and-ownership.md`](reference-notes/identity-and-ownership.md). Then determine: is this a solo Memex or a team Memex? This shapes how you write `identity.md`, `mission.md`, and everything downstream. Don't skip this — getting identity wrong early creates drag that compounds.
+
 ## Step 1: Who Are You?
 
 Ask the PI about themselves — not a biography, just enough to calibrate:
