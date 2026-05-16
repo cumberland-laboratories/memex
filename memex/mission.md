@@ -1,37 +1,21 @@
 # Mission
 
-## What tinyagent is
+## What We're Building
 
-A minimal coding assistant that demonstrates agentic design patterns in pure Python. No frameworks, no dependencies beyond the Anthropic SDK and stdlib. One file you can read top to bottom in twenty minutes.
+[What is this project? One paragraph. Be specific enough that a new agent session can orient itself in one read.]
 
-## Why it exists
+## Why It Exists
 
-Most agentic coding tools hide their architecture behind layers of abstraction. tinyagent exists to make architectural decisions visible and debatable. Every design choice — context management, tool dispatch, error recovery — is surface-level, not buried in a framework.
+[What problem does it solve? Who is it for? What's the gap this fills?]
 
-It is a **design artifact and teaching vehicle**, not a production tool. If you're using it to ship code, you've missed the point. If you're using it to argue about how agents should work, you're in the right place.
-
-## Scope boundaries
+## Scope Boundaries
 
 **In scope:**
-- Single-session task execution
-- File operations (read, write, patch)
-- Shell command execution with confirmation
-- Context budget tracking and compression
-- Tool protocol design (schema, dispatch, error shapes)
+- [What this project does]
 
 **Out of scope:**
-- Multi-agent orchestration
-- Persistence across tasks (the Memex handles that layer)
-- Retrieval-augmented generation or vector search
-- Production reliability guarantees (retry, circuit-breaking)
-- GUI or web interface
+- [What this project deliberately doesn't do — prevents agent overreach]
 
-The boundary is intentional: tinyagent handles one task in one session. Everything that persists across sessions lives in the Memex, not in tinyagent.
+## What Success Looks Like
 
-## Before touching the code
-
-**Charter lookup is mandatory.** Read the relevant charters before modifying any code. Charters document what every function reads, writes, and depends on — including tripwires and patterns invisible in the source.
-
-- Procedure: → [Charter Lookup](procedures/charter-lookup.md)
-- tinyagent charters: → [memex/charters/](charters/) (README.md has philosophy; charter files have notation)
-- Architecture overview: → [tinyagent Architecture](../docs/systems/tinyagent-architecture.md)
+[How do you know when it's working? Concrete, observable criteria.]

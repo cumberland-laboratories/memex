@@ -102,6 +102,36 @@ Two enforcer procedures:
 - Audit: → [enforcer-audit.md](.memex/procedures/enforcer-audit.md)
 - Documentation render: → [wiki-generation.md](.memex/procedures/wiki-generation.md)
 
+## Enforcer Findings Are for the PI
+
+When enforcer findings arrive — whether from the whiteboard, script output, or a CLI review — the agent **presents them to the PI and asks for direction**. The agent does not silently fix findings, dismiss them, or start acting on them unprompted.
+
+The correct behavior:
+1. Summarize the findings clearly
+2. Offer context: what the finding means, what thread/charter/tripwire is involved, what the options are
+3. **Ask the PI what to do next**
+
+The incorrect behavior:
+- "The enforcer found X, let me fix that now" → No. The PI decides.
+- Silently fixing a finding without mentioning it → No. The PI needs to see it.
+- Dismissing a finding as unimportant → No. The PI judges importance.
+
+Enforcer findings are a forcing function for the PI to think deeply. The value isn't just the fix — it's the PI's understanding that comes from deciding *whether* and *how* to fix it.
+
+## Knowledge Lives in the Repo
+
+Many AI models maintain per-user memory systems (Claude's `MEMORY.md`, Gemini's memory, etc.). These are external to the repo and invisible to other users and other models. **Repo knowledge belongs in `memex/`, not in model-specific memory.**
+
+The `memex/` folder is the shared knowledge layer — it works across users, across models, across sessions. If you learn something about this project that would help the next person (or the next model) work here, it goes in the repo:
+
+- Decisions, invariants, patterns → threads, charters, or `inbox.md`
+- Project context and priorities → `mission.md`, `roadmap.md`
+- Ideas and observations → `inbox.md`
+
+Model-specific memory is fine for user preferences (communication style, workflow habits). But anything about the **project, the research, or how to work in this repo** must be captured in `memex/`. If it's not in the repo, it doesn't exist for the team.
+
+→ [Knowledge Capture Procedure](memex/procedures/knowledge-capture.md)
+
 ## Conventions
 
 - **BRANCHING**: Default working branch is `dev`. Merges to `main` are human-authorized.
