@@ -14,16 +14,16 @@ Then match to a setup below.
 
 ## Decision Tree
 
-```
+```text
 Do you have any API key or CLI tool?
-├─ No → Use the lint script (.memex/scripts/memex-lint.sh) for mechanical checks.
+├─ No -> Use the lint script (.memex/scripts/memex-lint.sh) for mechanical checks.
 │       Consider ollama for free local model-based review.
 │
-├─ Yes → Is it the same vendor as your primary agent?
-│   ├─ Yes → It works, but cross-vendor is stronger.
-│   └─ No → Ideal. Different training = different blind spots.
+├─ Yes -> Is it the same vendor as your primary agent?
+│   ├─ Yes -> It works, but cross-vendor is stronger.
+│   └─ No -> Ideal. Different training = different blind spots.
 │
-└─ Multiple → Pick the one that's different from your primary.
+└─ Multiple -> Pick the one that's different from your primary.
 ```
 
 ## Setup Options
@@ -33,16 +33,16 @@ Do you have any API key or CLI tool?
 ```bash
 npm install -g @openai/codex
 codex login
-codex review --uncommitted
+codex review "Read .memex/scripts/enforcer-prompt.md for full instructions. Audit the memex against the constitutions and produce a structured report."
 ```
 
-Codex reads `AGENTS.md` automatically. Review mode is read-only by default. The PI can run this independently in a separate terminal.
+`AGENTS.md` is the primary-agent entrypoint, so give Codex the dedicated enforcer prompt explicitly for review work. Review mode is read-only by default. The PI can run this independently in a separate terminal.
 
 ### Claude Code — Recommended for GPT/Gemini users
 
 ```bash
 # From a separate terminal
-claude --print "Read constitution-core.md and constitution.md. Audit the memex/ folder: check for thread staleness, cross-reference integrity, charter accuracy, and constitutional compliance. Produce a structured report."
+claude --print "$(cat .memex/scripts/enforcer-prompt.md)"
 ```
 
 ### Gemini CLI
@@ -63,7 +63,7 @@ Checks compression budgets, thread sizes, frontmatter, cross-reference integrity
 
 ```bash
 ollama pull llama3
-# Then use as review model for charter-grounded checks
+# Then use as review model for Memex audits
 ```
 
 ## Cross-Vendor Principle
